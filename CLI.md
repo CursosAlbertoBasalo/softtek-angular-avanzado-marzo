@@ -10,4 +10,7 @@ npm install prettier prettier-eslint eslint-config-prettier eslint-plugin-pretti
 
 npm run lint
 
+npm i @picocss/pico
+npm install -D json-server json-server-auth
+
 ```

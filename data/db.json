@@ -1,0 +1,153 @@
+{
+  "users": [],
+  "bookings": [
+    {
+      "id": "1",
+      "trip_id": "space-y-moon-1",
+      "traveler_id": "1",
+      "passengers_count": 1,
+      "has_premium_foods": true,
+      "extra_luggage_kilos": 0,
+      "payment_id": "1",
+      "refund_id": "",
+      "operator_reserve_code": "m-1",
+      "status": "RESERVED"
+    },
+    {
+      "tripId": "space-y-moon-1",
+      "travelerId": "alberto@aldaba.com",
+      "passengersCount": 1,
+      "status": "REQUESTED",
+      "hasPremiumFoods": false,
+      "paymentId": null,
+      "id": "sh0PW5g"
+    },
+    {
+      "tripId": "space-y-moon-1",
+      "travelerId": "alberto@aldaba.com",
+      "passengersCount": 1,
+      "status": "REQUESTED",
+      "hasPremiumFoods": false,
+      "paymentId": null,
+      "id": "y82f2d8"
+    },
+    {
+      "tripId": "space-y-mars-2",
+      "travelerId": "alberto@aldaba.com",
+      "passengersCount": 6,
+      "status": "RESERVED",
+      "hasPremiumFoods": true,
+      "paymentId": "payPal",
+      "id": "d_UDC9H"
+    },
+    {
+      "tripId": "green-origin-iss-4",
+      "travelerId": "alberto@aldaba.com",
+      "passengersCount": 3,
+      "status": "PAID",
+      "hasPremiumFoods": false,
+      "paymentId": "creditCard",
+      "id": "LjGTyzI"
+    },
+    {
+      "tripId": "space-y-moon-1",
+      "travelerId": "alberto@aldaba.com",
+      "passengersCount": 1,
+      "status": "REQUESTED",
+      "hasPremiumFoods": false,
+      "paymentId": null,
+      "id": "Cqpiqfp"
+    },
+    {
+      "tripId": "space-y-mars-2",
+      "travelerId": "alberto@aldaba.com",
+      "passengersCount": 1,
+      "status": "REQUESTED",
+      "hasPremiumFoods": false,
+      "paymentId": null,
+      "id": "Kgg47Co"
+    }
+  ],
+  "agencies": [
+    {
+      "id": "space-y",
+      "name": "Space Y",
+      "range": "INTERPLANETARY",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "green-origin",
+      "name": "Green Origin",
+      "range": "ORBITAL",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "virgin-way",
+      "name": "Virgin Way",
+      "range": "ORBITAL",
+      "status": "PENDING"
+    }
+  ],
+  "trips": [
+    {
+      "id": "space-y-moon-1",
+      "operatorId": "space-y",
+      "operatorTripCode": "moon",
+      "destination": "The Moon",
+      "places": 14,
+      "startDate": "2023-01-01",
+      "endDate": "2023-02-01",
+      "flightPrice": 1200000,
+      "stayingNightPrice": 10000,
+      "kind": "WITH_STAY",
+      "status": "CONFIRMED",
+      "extraLuggagePricePerKilo": 2000,
+      "premiumFoodPrice": 0
+    },
+    {
+      "id": "space-y-mars-2",
+      "operatorId": "space-y",
+      "operatorTripCode": "mars",
+      "destination": "Mars",
+      "places": 8,
+      "startDate": "2024-01-01",
+      "endDate": "2024-05-01",
+      "flightPrice": 8400000,
+      "stayingNightPrice": 10000,
+      "kind": "WITH_STAY",
+      "status": "WAITING",
+      "extraLuggagePricePerKilo": 50000,
+      "premiumFoodPrice": 0
+    },
+    {
+      "id": "green-origin-low-orbit-3",
+      "operatorId": "green-origin",
+      "operatorTripCode": "low-orbit",
+      "destination": "Low Orbit",
+      "places": 0,
+      "startDate": "2022-04-01",
+      "endDate": "2022-04-01",
+      "flightPrice": 320000,
+      "stayingNightPrice": 0,
+      "kind": "TRIP_ONLY",
+      "status": "WAITING",
+      "extraLuggagePricePerKilo": 0,
+      "premiumFoodPrice": 1000
+    },
+    {
+      "id": "green-origin-iss-4",
+      "operatorId": "green-origin",
+      "operatorTripCode": "iss",
+      "destination": "ISS",
+      "places": 6,
+      "startDate": "2022-06-01",
+      "endDate": "2022-06-01",
+      "flightPrice": 800000,
+      "stayingNightPrice": 0,
+      "kind": "TRIP_ONLY",
+      "status": "WAITING",
+      "extraLuggagePricePerKilo": 0,
+      "premiumFoodPrice": 1000
+    }
+  ]
+}

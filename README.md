@@ -13,8 +13,9 @@ npm run api
 
 ## Docs
 
-Command Line journal: https://github.com/LabsAdemy/softtek-angular-avanzado/blob/main/docs/CLI.md
-Tasks for Astro Bookings: https://github.com/LabsAdemy/softtek-angular-avanzado/blob/main/docs/TASKS.md
+- Command Line journal: https://github.com/LabsAdemy/softtek-angular-avanzado/blob/main/docs/CLI.md
+
+- Tasks for Astro Bookings: https://github.com/LabsAdemy/softtek-angular-avanzado/blob/main/docs/TASKS.md
 
 ## 🛠 VS Code
 

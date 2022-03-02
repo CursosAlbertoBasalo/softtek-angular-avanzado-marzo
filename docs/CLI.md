@@ -20,10 +20,14 @@ npm install -D json-server json-server-auth
 npm start
 npm run api
 
-# Remove initial components
+# Clean initial component and styles
+
 # Crete a core module for header and footer components
 ng g m core --module app.module.ts
 ng g c core/header --export true
 ng g c core/footer --export true
 
+# Add data module with models and services
+ng g s data/agencies
+ng g s data/trips
 ```

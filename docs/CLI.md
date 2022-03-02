@@ -24,8 +24,8 @@ npm run api
 
 # Crete a Core module for header and footer components
 ng g m core --module app.module.ts
-ng g c core/header --export true
-ng g c core/footer --export true
+ng g c core/components/header --export true
+ng g c core/components/footer --export true
 
 # Create Data module with models and services
 ng g c data/models/user --export true

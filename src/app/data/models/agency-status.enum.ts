@@ -1,1 +1,4 @@
-export enum AgencyStatus {}
+export enum AgencyStatus {
+  Active = 'Active',
+  Pending = 'Pending',
+}

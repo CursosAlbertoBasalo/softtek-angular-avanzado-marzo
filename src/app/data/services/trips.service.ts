@@ -15,4 +15,7 @@ export class TripsService {
   getAll$(): Observable<Trip[]> {
     return this.http.get<Trip[]>(this.apiUrl);
   }
+  getError$(): Observable<Trip[]> {
+    return this.http.get<Trip[]>(this.apiUrl + '/error');
+  }
 }

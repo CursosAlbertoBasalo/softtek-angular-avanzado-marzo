@@ -1,2 +1,1 @@
-export enum AgencyStatus {
-}
+export enum AgencyStatus {}

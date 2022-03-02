@@ -41,11 +41,13 @@ ng g s data/services/trips
 
 # Create Shared module for components and pipes
 ng g m shared
+ng g c shared/components/preview --export true
 ng g c shared/components/loading --export true
 ng g c shared/components/error --export true
 ng g c shared/components/empty --export true
 ng g c shared/components/refresh --export true
 
 # Create Home module for home page
-
+ng g m home --module app.module.ts --route 'home'
+ng g s home/home
 ```

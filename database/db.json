@@ -1,6 +1,26 @@
 {
   "users": [],
   "bookings": [],
+  "agencies": [
+    {
+      "id": "space-y",
+      "name": "Space Y",
+      "range": "Interplanetary",
+      "status": "Active"
+    },
+    {
+      "id": "green-origin",
+      "name": "Green Origin",
+      "range": "Orbital",
+      "status": "Active"
+    },
+    {
+      "id": "virgin-way",
+      "name": "Virgin Way",
+      "range": "Orbital",
+      "status": "Pending"
+    }
+  ],
   "trips": [
     {
       "id": "space-y-moon-1",
@@ -12,8 +32,8 @@
       "endDate": "2023-02-01",
       "flightPrice": 1200000,
       "stayingNightPrice": 10000,
-      "kind": "WITH_STAY",
-      "status": "CONFIRMED",
+      "kind": "WithStay",
+      "status": "Confirmed",
       "extraLuggagePricePerKilo": 2000,
       "premiumFoodPrice": 0
     },
@@ -27,8 +47,8 @@
       "endDate": "2024-05-01",
       "flightPrice": 8400000,
       "stayingNightPrice": 10000,
-      "kind": "WITH_STAY",
-      "status": "WAITING",
+      "kind": "WithStay",
+      "status": "Waiting",
       "extraLuggagePricePerKilo": 50000,
       "premiumFoodPrice": 0
     },
@@ -42,8 +62,8 @@
       "endDate": "2022-04-01",
       "flightPrice": 320000,
       "stayingNightPrice": 0,
-      "kind": "TRIP_ONLY",
-      "status": "WAITING",
+      "kind": "TripOnly",
+      "status": "Waiting",
       "extraLuggagePricePerKilo": 0,
       "premiumFoodPrice": 1000
     },
@@ -57,8 +77,8 @@
       "endDate": "2022-06-01",
       "flightPrice": 800000,
       "stayingNightPrice": 0,
-      "kind": "TRIP_ONLY",
-      "status": "WAITING",
+      "kind": "TripOnly",
+      "status": "Waiting",
       "extraLuggagePricePerKilo": 0,
       "premiumFoodPrice": 1000
     }

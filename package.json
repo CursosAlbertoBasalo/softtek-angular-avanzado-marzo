@@ -1,6 +1,12 @@
 {
   "name": "softtek-angular-avanzado",
-  "version": "0.0.0",
+  "description": "Curso avanzado de angular para Softtek",
+  "version": "13.0.0",
+  "author": {
+    "name": "Alberto Basalo",
+    "email": "albertobasalo@hotmail.com",
+    "url": "https://twitter.com/albertobasalo"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
@@ -8,7 +14,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint --fix",
-    "api": "json-server-auth ./data/db.json -r ./data/routes.json"
+    "api": "json-server-auth ./database/db.json -r ./database/routes.json"
   },
   "private": true,
   "dependencies": {

@@ -1,12 +1,31 @@
-<article *ngIf="agencies$ | async as agencies">
-  <header>There are {{agencies.length}} agencies</header>
-  <main>
-    <stk-preview [data]="agencies"></stk-preview>
-  </main>
-  <footer>
-    <stk-refresh (refresh)="loadAgencies()"></stk-refresh>
-  </footer>
-</article>
+<ng-container *ngIf="agencies$ | async as agencies; else errorOrLoadingAgencies">
+  <article>
+    <header>There are {{agencies.length}} agencies</header>
+    <main>
+      <ng-container *ngIf="agencies.length >0; else noAgencies">
+        <stk-preview [data]="agencies"></stk-preview>
+      </ng-container>
+      <ng-template #noAgencies>
+        <stk-empty></stk-empty>
+      </ng-template>
+    </main>
+    <footer>
+      <stk-refresh (refresh)="loadAgencies()"></stk-refresh>
+    </footer>
+  </article>
+</ng-container>
+
+<ng-template #errorOrLoadingAgencies>
+  <ng-container *ngIf="agenciesError$ | async as error; else loading">
+    <stk-error></stk-error>
+  </ng-container>
+  <ng-template #loading>
+    <stk-loading></stk-loading>
+  </ng-template>
+</ng-template>
+
+
+
 <article *ngIf="trips$ | async as trips">
   <header>There are {{trips.length}} trips</header>
   <main>

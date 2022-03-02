@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject, tap } from 'rxjs';
 import { HomeService } from './home.service';
 
 @Component({
@@ -7,8 +8,14 @@ import { HomeService } from './home.service';
   styles: [],
 })
 export class HomeComponent implements OnInit {
-  agencies$ = this.service.getAgencies$();
+  agencies$ = this.service.getAgencies$().pipe(
+    tap({
+      error: (err) => this.agenciesError$.next(err),
+    })
+  );
+  agenciesError$ = new BehaviorSubject('');
   trips$ = this.service.getTrips$();
+  tripsError$ = new BehaviorSubject('');
   constructor(private service: HomeService) {}
 
   ngOnInit(): void {}

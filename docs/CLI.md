@@ -22,12 +22,22 @@ npm run api
 
 # Clean initial component and styles
 
-# Crete a core module for header and footer components
+# Crete a Core module for header and footer components
 ng g m core --module app.module.ts
 ng g c core/header --export true
 ng g c core/footer --export true
 
-# Add data module with models and services
+# Create Data module with models and services
 ng g s data/agencies
 ng g s data/trips
+
+# Create Shared module for components and pipes
+ng g m shared
+ng g c shared/loading --export true
+ng g c shared/error --export true
+ng g c shared/empty --export true
+ng g c shared/refresh --export true
+
+# Create Home module for home page
+
 ```

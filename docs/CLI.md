@@ -29,6 +29,13 @@ ng g c core/components/footer --export true
 
 # Create Data module with models and services
 ng g c data/models/user --export true
+ng g enum data/models/agencyRange --type enum
+ng g enum data/models/agencyStatus --type enum
+ng g interface data/models/agency --type interface
+ng g enum data/models/tripKind --type enum
+ng g enum data/models/tripStatus --type enum
+ng g interface data/models/trip --type interface
+
 ng g s data/services/agencies
 ng g s data/services/trips
 

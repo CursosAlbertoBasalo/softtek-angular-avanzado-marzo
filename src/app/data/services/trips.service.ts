@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Trip } from '@data/models/trip';
+import { Trip } from '@data/models/trip.interface';
 import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
 

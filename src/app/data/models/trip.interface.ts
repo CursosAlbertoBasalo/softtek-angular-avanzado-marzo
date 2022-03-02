@@ -1,15 +1,7 @@
-export enum TripKinds {
-  TRIP_ONLY,
-  WITH_STAY,
-}
+import { TripKind } from './trip-kind.enum';
+import { TripStatus } from './trip-status.enum';
 
-export enum TripStatus {
-  WAITING,
-  CANCELLED,
-  CONFIRMED,
-}
-
-export type Trip = {
+export interface Trip {
   id: string | undefined;
   operatorId: string;
   operatorTripCode: string | undefined;
@@ -18,9 +10,9 @@ export type Trip = {
   endDate: Date;
   flightPrice: number;
   stayingNightPrice: number;
-  kind: TripKinds;
+  kind: TripKind;
   status: TripStatus;
   extraLuggagePricePerKilo: number;
   premiumFoodPrice: number;
   places: number;
-};
+}

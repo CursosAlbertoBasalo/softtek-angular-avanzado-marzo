@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Agency } from '@data/models/agency';
+import { Agency } from '@data/models/agency.interface';
 import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
 

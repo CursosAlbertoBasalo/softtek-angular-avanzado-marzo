@@ -28,15 +28,16 @@ ng g c core/header --export true
 ng g c core/footer --export true
 
 # Create Data module with models and services
-ng g s data/agencies
-ng g s data/trips
+ng g c data/models/user --export true
+ng g s data/services/agencies
+ng g s data/services/trips
 
 # Create Shared module for components and pipes
 ng g m shared
-ng g c shared/loading --export true
-ng g c shared/error --export true
-ng g c shared/empty --export true
-ng g c shared/refresh --export true
+ng g c shared/components/loading --export true
+ng g c shared/components/error --export true
+ng g c shared/components/empty --export true
+ng g c shared/components/refresh --export true
 
 # Create Home module for home page
 

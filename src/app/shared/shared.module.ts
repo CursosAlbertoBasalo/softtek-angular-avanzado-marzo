@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoadingComponent } from './loading/loading.component';
-import { ErrorComponent } from './error/error.component';
-import { EmptyComponent } from './empty/empty.component';
-import { RefreshComponent } from './refresh/refresh.component';
+import { NgModule } from '@angular/core';
+import { EmptyComponent } from './components/empty/empty.component';
+import { ErrorComponent } from './components/error/error.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { RefreshComponent } from './components/refresh/refresh.component';
 
 @NgModule({
   declarations: [LoadingComponent, ErrorComponent, EmptyComponent, RefreshComponent],

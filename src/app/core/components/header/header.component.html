@@ -1,6 +1,9 @@
 <header>
-  <a routerLink="/">
-    🚀 {{ title | uppercase }}
-  </a>
+  <nav>
+    <a routerLink="/">
+      🚀 {{ title | uppercase }}
+    </a>
+    <a [routerLink]="['/agencies']"> ➡️ Agencies </a>
+  </nav>
 </header>
 <hr>

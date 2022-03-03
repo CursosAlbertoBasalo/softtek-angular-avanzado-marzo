@@ -69,4 +69,12 @@ ng g c shared/components/contentWrapper --export true
 
 # Create pipes
 ng g p shared/pipes/agencyRange --export true
+
+# Router
+
+# Create module for the agencies page
+ng g m agencies --module app.module.ts --route 'agencies'
+# Resolver to get agencies before page load
+# Use RxJs pipes to catch errors
+ng g r agencies/agencies
 ```

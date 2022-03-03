@@ -1,15 +1,28 @@
 <stk-async-wrapper [data$]="agencies$"
                    [dataTemplate]="agenciesTemplate">
+  <ng-template #agenciesTemplate
+               let-agenciesData="templateData">
+    <stk-agencies [agencies]="agenciesData"
+                  (refresh)="loadAgencies()"></stk-agencies>
+  </ng-template>
 </stk-async-wrapper>
-<ng-template #agenciesTemplate
-             let-agenciesData="templateData">
-  <stk-agencies [agencies]="agenciesData"
-                (refresh)="loadAgencies()"></stk-agencies>
-</ng-template>
+<stk-async-wrapper [data$]="trips$"
+                   [dataTemplate]="descanso">
+  <ng-template #tripsTemplate
+               let-data="templateData">
+    <ul>
+      <li *ngFor="let trip of data"> {{ trip.destination }} </li>
+    </ul>
+    <!-- <stk-trips [agencies]="data"
+                  (refresh)="loadAgencies()"></stk-trips> -->
+  </ng-template>
+  <ng-template #descanso>
+    Hacemos una parada
+  </ng-template>
+</stk-async-wrapper>
 
 
-
-<article *ngIf="trips$ | async as trips">
+<!-- <article *ngIf="trips$ | async as trips">
   <header>There are {{trips.length}} trips</header>
   <main>
     <stk-preview [data]="trips"></stk-preview>
@@ -17,4 +30,4 @@
   <footer>
     <stk-refresh (refresh)="loadTrips()"></stk-refresh>
   </footer>
-</article>
+</article> -->

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Component({
@@ -8,8 +8,9 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AsyncWrapperComponent implements OnInit {
-  private _data$!: Observable<unknown>;
+  @Input() dataTemplate!: TemplateRef<HTMLElement>;
 
+  private _data$!: Observable<unknown>;
   @Input() set data$(value: Observable<unknown>) {
     if (!value) return;
     this._data$ = value.pipe(
@@ -21,6 +22,7 @@ export class AsyncWrapperComponent implements OnInit {
   get data$(): Observable<unknown> {
     return this._data$;
   }
+
   error$ = new BehaviorSubject('');
   constructor() {}
 

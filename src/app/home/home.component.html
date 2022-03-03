@@ -1,12 +1,11 @@
-<!-- <ng-container *ngIf="agencies$ | async as agencies; else errorOrLoadingAgencies">
-  <stk-agencies [agencies]="agencies"
+<stk-async-wrapper [data$]="agencies$"
+                   [dataTemplate]="agenciesTemplate">
+</stk-async-wrapper>
+<ng-template #agenciesTemplate
+             let-agenciesData="templateData">
+  <stk-agencies [agencies]="agenciesData"
                 (refresh)="loadAgencies()"></stk-agencies>
-</ng-container>
-<ng-template #errorOrLoadingAgencies>
-  <stk-loading-or-error [error$]="agenciesError$"></stk-loading-or-error>
-</ng-template> -->
-<stk-async-wrapper [data$]="agencies$"></stk-async-wrapper>
-
+</ng-template>
 
 
 

@@ -1,0 +1,14 @@
+<article>
+  <header>There are {{agencies.length}} agencies</header>
+  <main>
+    <ng-container *ngIf="agencies.length >0; else noAgencies">
+      <stk-preview [data]="agencies"></stk-preview>
+    </ng-container>
+    <ng-template #noAgencies>
+      <stk-empty></stk-empty>
+    </ng-template>
+  </main>
+  <footer>
+    <stk-refresh (refresh)="refresh.next()"></stk-refresh>
+  </footer>
+</article>

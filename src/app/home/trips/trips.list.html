@@ -1,4 +1,4 @@
-<article>
+<!-- <article>
   <header>There are {{trips.length}} trips</header>
   <main>
     <ng-container *ngIf="trips.length >0; else noTrips">
@@ -11,4 +11,14 @@
   <footer>
     <stk-refresh (refresh)="refresh.next()"></stk-refresh>
   </footer>
-</article>
+</article> -->
+
+<stk-list dataName="Trips"
+          [data]="trips"
+          (refresh)="refresh.next()">
+  <main>
+    <ul>
+      <li *ngFor="let trip of trips"> {{ trip.destination }}</li>
+    </ul>
+  </main>
+</stk-list>

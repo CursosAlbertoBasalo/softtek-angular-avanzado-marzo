@@ -66,4 +66,7 @@ ng g c home/trips --type list
 ng g c shared/components/list --export true
 # Alternative way using ng-content
 ng g c shared/components/contentWrapper --export true
+
+# Create pipes
+ng g p shared/pipes/agencyRange --export true
 ```

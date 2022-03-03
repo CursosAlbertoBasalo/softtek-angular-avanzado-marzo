@@ -9,10 +9,11 @@ import { LoadingOrErrorComponent } from './components/loading-or-error/loading-o
 import { AsyncWrapperComponent } from './components/async-wrapper/async-wrapper.component';
 import { ListComponent } from './components/list/list.component';
 import { ContentWrapperComponent } from './components/content-wrapper/content-wrapper.component';
+import { AgencyRangePipe } from './pipes/agency-range.pipe';
 
 @NgModule({
-  declarations: [LoadingComponent, ErrorComponent, EmptyComponent, RefreshComponent, PreviewComponent, LoadingOrErrorComponent, AsyncWrapperComponent, ListComponent, ContentWrapperComponent],
+  declarations: [LoadingComponent, ErrorComponent, EmptyComponent, RefreshComponent, PreviewComponent, LoadingOrErrorComponent, AsyncWrapperComponent, ListComponent, ContentWrapperComponent, AgencyRangePipe],
   imports: [CommonModule],
-  exports: [LoadingComponent, ErrorComponent, EmptyComponent, RefreshComponent, PreviewComponent, LoadingOrErrorComponent, AsyncWrapperComponent, ListComponent, ContentWrapperComponent],
+  exports: [LoadingComponent, ErrorComponent, EmptyComponent, RefreshComponent, PreviewComponent, LoadingOrErrorComponent, AsyncWrapperComponent, ListComponent, ContentWrapperComponent, AgencyRangePipe],
 })
 export class SharedModule {}

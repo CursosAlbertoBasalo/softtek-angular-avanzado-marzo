@@ -65,4 +65,7 @@ ng g c shared/components/asyncWrapper --export true
 ng g c home/trips --type list
 ng g c shared/components/list --export true
 
+# Create pipes
+ng g p shared/pipes/agencyRange --export true
+
 ```

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Trip } from '@data/models/trip.interface';
 import { HomeService } from './home.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { HomeService } from './home.service';
 export class HomeComponent implements OnInit {
   agencies$ = this.service.getAgencies$();
   trips$ = this.service.getTrips$();
-  tripsError$ = new BehaviorSubject('');
+  trips: Trip[] = [];
 
   constructor(private service: HomeService) {}
 
@@ -21,5 +21,8 @@ export class HomeComponent implements OnInit {
   }
   loadTrips() {
     this.trips$ = this.service.getTrips$();
+  }
+  onDataLoaded(trips: unknown) {
+    this.trips = trips as Trip[];
   }
 }

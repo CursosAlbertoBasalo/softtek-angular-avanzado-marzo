@@ -2,7 +2,11 @@
   <header>There are {{agencies.length}} agencies</header>
   <main>
     <ng-container *ngIf="agencies.length >0; else noAgencies">
-      <stk-preview [data]="agencies"></stk-preview>
+      <ul>
+        <li *ngFor="let agency of agencies">
+          {{ agency.range | agencyRange }} {{ agency.name }}
+        </li>
+      </ul>
     </ng-container>
     <ng-template #noAgencies>
       <stk-empty></stk-empty>

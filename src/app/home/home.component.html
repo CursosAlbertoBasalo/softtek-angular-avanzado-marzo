@@ -6,28 +6,21 @@
                   (refresh)="loadAgencies()"></stk-agencies>
   </ng-template>
 </stk-async-wrapper>
+
+
 <stk-async-wrapper [data$]="trips$"
-                   [dataTemplate]="descanso">
+                   [dataTemplate]="tripsTemplate">
   <ng-template #tripsTemplate
                let-data="templateData">
     <ul>
       <li *ngFor="let trip of data"> {{ trip.destination }} </li>
     </ul>
-    <!-- <stk-trips [agencies]="data"
-                  (refresh)="loadAgencies()"></stk-trips> -->
-  </ng-template>
-  <ng-template #descanso>
-    Hacemos una parada
   </ng-template>
 </stk-async-wrapper>
 
-
-<!-- <article *ngIf="trips$ | async as trips">
-  <header>There are {{trips.length}} trips</header>
-  <main>
-    <stk-preview [data]="trips"></stk-preview>
-  </main>
-  <footer>
-    <stk-refresh (refresh)="loadTrips()"></stk-refresh>
-  </footer>
-</article> -->
+<stk-content-wrapper [data$]="trips$"
+                     (dataLoaded)="onDataLoaded($event)">
+  <ul>
+    <li *ngFor="let trip of trips"> {{ trip.destination }} </li>
+  </ul>
+</stk-content-wrapper>

@@ -7,6 +7,8 @@ import { RefreshComponent } from './components/refresh/refresh.component';
 import { PreviewComponent } from './components/preview/preview.component';
 import { LoadingOrErrorComponent } from './components/loading-or-error/loading-or-error.component';
 import { AsyncWrapperComponent } from './components/async-wrapper/async-wrapper.component';
+import { AgencyRangePipe } from './pipes/agency-range.pipe';
+import { ContentWrapperComponent } from './components/content-wrapper/content-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,10 @@ import { AsyncWrapperComponent } from './components/async-wrapper/async-wrapper.
     PreviewComponent,
     LoadingOrErrorComponent,
     AsyncWrapperComponent,
+    AgencyRangePipe,
+    ContentWrapperComponent,
   ],
   imports: [CommonModule],
-  exports: [LoadingComponent, ErrorComponent, EmptyComponent, RefreshComponent, PreviewComponent, LoadingOrErrorComponent, AsyncWrapperComponent],
+  exports: [LoadingComponent, ErrorComponent, EmptyComponent, RefreshComponent, PreviewComponent, LoadingOrErrorComponent, AsyncWrapperComponent, AgencyRangePipe, ContentWrapperComponent],
 })
 export class SharedModule {}

@@ -9,8 +9,8 @@
 
 ## 1. Componentes para presentación de información
 
-- [ ] Mostrar un mensaje mientras se está cargando la información
-- [ ] Mostrar un mensaje de error cuando no puede cargar la información
-- [ ] Mostrar un mensaje de advertencia cuando no hay datos disponibles
-- [ ] Mostrar los datos en modo lista
+- [x] Mostrar un mensaje mientras se está cargando la información
+- [x] Mostrar un mensaje de error cuando no puede cargar la información
+- [x] Mostrar un mensaje de advertencia cuando no hay datos disponibles
+- [x] Mostrar los datos en modo lista
 - [ ] Transformar los enumerados en iconos

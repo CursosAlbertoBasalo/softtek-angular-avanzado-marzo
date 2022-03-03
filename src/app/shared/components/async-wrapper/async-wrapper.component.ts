@@ -15,18 +15,13 @@ export class AsyncWrapperComponent implements OnInit {
     if (!value) return;
     this._data$ = value.pipe(
       tap({
-        error: (err) => {
-          console.log('AsyncWrapperComponent.data$.error', err.statusText);
-          this.error = err.statusText;
-          this.error$.next(err.statusText);
-        },
+        error: (err) => this.error$.next(err.statusText),
       })
     );
   }
   get data$(): Observable<unknown> | undefined {
     return this._data$;
   }
-  error = 'a';
   error$ = new BehaviorSubject('');
   constructor() {}
 

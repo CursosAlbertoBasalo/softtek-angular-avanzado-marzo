@@ -50,10 +50,20 @@ ng g c shared/components/refresh --export true
 # Create Home module for home page
 ng g m home --module app.module.ts --route 'home'
 ng g s home/home
+
+# Create presentational components
+
+# Agencies as a presentational component
 ng g c home/agencies --type list
+# LoadingOrError to be reused in other components
 ng g c shared/components/loadingOrError --export true
+# Responsible of async data loading, error detection and template rendering
+# TemplateRef as input parameter
+# Data$ as input parameter, with get set methods
+# Container with templateOutlet and templateContext
 ng g c shared/components/asyncWrapper --export true
 ng g c home/trips --type list
 ng g c shared/components/list --export true
+# Alternative way using ng-content
 ng g c shared/components/contentWrapper --export true
 ```

@@ -1,0 +1,6 @@
+<ng-container *ngIf="error; else loading">
+  <stk-error></stk-error>
+</ng-container>
+<ng-template #loading>
+  <stk-loading></stk-loading>
+</ng-template>

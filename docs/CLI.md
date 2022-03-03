@@ -50,4 +50,10 @@ ng g c shared/components/refresh --export true
 # Create Home module for home page
 ng g m home --module app.module.ts --route 'home'
 ng g s home/home
+ng g c home/agencies --type list
+ng g c shared/components/loadingOrError --export true
+ng g c shared/components/asyncWrapper --export true
+ng g c home/trips --type list
+ng g c shared/components/list --export true
+ng g c shared/components/contentWrapper --export true
 ```

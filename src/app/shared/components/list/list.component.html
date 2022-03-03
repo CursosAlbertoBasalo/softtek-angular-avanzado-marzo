@@ -1,0 +1,15 @@
+<article>
+  <header>There are {{data.length}} {{dataName}}</header>
+  <main>
+    <ng-container *ngIf="data.length >0; else noData">
+      <!-- <stk-preview [data]="data"></stk-preview> -->
+      <ng-content></ng-content>
+    </ng-container>
+    <ng-template #noData>
+      <stk-empty></stk-empty>
+    </ng-template>
+  </main>
+  <footer>
+    <stk-refresh (refresh)="refresh.next()"></stk-refresh>
+  </footer>
+</article>

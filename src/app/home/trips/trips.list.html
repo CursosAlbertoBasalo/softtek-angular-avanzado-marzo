@@ -1,0 +1,14 @@
+<article>
+  <header>There are {{trips.length}} trips</header>
+  <main>
+    <ng-container *ngIf="trips.length >0; else noTrips">
+      <stk-preview [data]="trips"></stk-preview>
+    </ng-container>
+    <ng-template #noTrips>
+      <stk-empty></stk-empty>
+    </ng-template>
+  </main>
+  <footer>
+    <stk-refresh (refresh)="refresh.next()"></stk-refresh>
+  </footer>
+</article>

@@ -1,0 +1,6 @@
+<ng-container *ngIf="data$ | async as data; else errorOrLoading">
+  <ng-content></ng-content>
+</ng-container>
+<ng-template #errorOrLoading>
+  <stk-loading-or-error [error]="error$ | async"></stk-loading-or-error>
+</ng-template>

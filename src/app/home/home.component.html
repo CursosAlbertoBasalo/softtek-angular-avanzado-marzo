@@ -1,4 +1,4 @@
-<ng-container *ngIf="agencies$ | async as agencies; else errorOrLoadingAgencies">
+<!-- <ng-container *ngIf="agencies$ | async as agencies; else errorOrLoadingAgencies">
   <article>
     <header>There are {{agencies.length}} agencies</header>
     <main>
@@ -22,11 +22,26 @@
   <ng-template #loading>
     <stk-loading></stk-loading>
   </ng-template>
+</ng-template> -->
+
+<!-- <ng-container *ngIf="agencies$ | async as agencies; else errorOrLoadingAgencies">
+  <stk-agencies [agencies]="agencies"
+                (refresh)="loadAgencies()"></stk-agencies>
+</ng-container>
+<ng-template #errorOrLoadingAgencies>
+  <stk-loading-or-error [error]="agenciesError"></stk-loading-or-error>
+</ng-template> -->
+
+<stk-async-wrapper [data$]="agencies$"
+                   [dataTemplate]="agenciesTemplate"></stk-async-wrapper>
+<ng-template #agenciesTemplate
+             let-agenciesData="templateData">
+  <stk-agencies [agencies]="agenciesData"
+                (refresh)="loadAgencies()"></stk-agencies>
 </ng-template>
 
 
-
-<article *ngIf="trips$ | async as trips">
+<!-- <article *ngIf="trips$ | async as trips">
   <header>There are {{trips.length}} trips</header>
   <main>
     <stk-preview [data]="trips"></stk-preview>
@@ -34,4 +49,18 @@
   <footer>
     <stk-refresh (refresh)="loadTrips()"></stk-refresh>
   </footer>
-</article>
+</article> -->
+
+<!-- <stk-async-wrapper [data$]="trips$"
+                   [dataTemplate]="tripsTemplate"></stk-async-wrapper>
+<ng-template #tripsTemplate
+             let-tripsData="templateData">
+  <stk-trips [trips]="tripsData"
+             (refresh)="loadTrips()"></stk-trips>
+</ng-template> -->
+
+<stk-content-wrapper [data$]="trips$"
+                     (dataLoaded)="onTripsLoaded($event)">
+  <stk-trips [trips]="tripsData"
+             (refresh)="loadTrips()"></stk-trips>
+</stk-content-wrapper>

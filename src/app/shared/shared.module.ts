@@ -7,7 +7,13 @@ import { RefreshComponent } from './components/refresh/refresh.component';
 import { PreviewComponent } from './components/preview/preview.component';
 
 @NgModule({
-  declarations: [LoadingComponent, ErrorComponent, EmptyComponent, RefreshComponent, PreviewComponent],
+  declarations: [
+    LoadingComponent,
+    ErrorComponent,
+    EmptyComponent,
+    RefreshComponent,
+    PreviewComponent,
+  ],
   imports: [CommonModule],
   exports: [LoadingComponent, ErrorComponent, EmptyComponent, RefreshComponent, PreviewComponent],
 })

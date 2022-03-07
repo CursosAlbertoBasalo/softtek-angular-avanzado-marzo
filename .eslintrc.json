@@ -34,7 +34,8 @@
               "Page",
               "Component",
               "Form",
-              "List"
+              "List",
+              "Dialog"
             ]
           }
         ],

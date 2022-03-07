@@ -10,10 +10,11 @@ import { AsyncWrapperComponent } from './components/async-wrapper/async-wrapper.
 import { ListComponent } from './components/list/list.component';
 import { ContentWrapperComponent } from './components/content-wrapper/content-wrapper.component';
 import { AgencyRangePipe } from './pipes/agency-range.pipe';
+import { DeactivationDialog } from './components/deactivation/deactivation.dialog';
 
 @NgModule({
-  declarations: [LoadingComponent, ErrorComponent, EmptyComponent, RefreshComponent, PreviewComponent, LoadingOrErrorComponent, AsyncWrapperComponent, ListComponent, ContentWrapperComponent, AgencyRangePipe],
+  declarations: [LoadingComponent, ErrorComponent, EmptyComponent, RefreshComponent, PreviewComponent, LoadingOrErrorComponent, AsyncWrapperComponent, ListComponent, ContentWrapperComponent, AgencyRangePipe, DeactivationDialog],
   imports: [CommonModule],
-  exports: [LoadingComponent, ErrorComponent, EmptyComponent, RefreshComponent, PreviewComponent, LoadingOrErrorComponent, AsyncWrapperComponent, ListComponent, ContentWrapperComponent, AgencyRangePipe],
+  exports: [LoadingComponent, ErrorComponent, EmptyComponent, RefreshComponent, PreviewComponent, LoadingOrErrorComponent, AsyncWrapperComponent, ListComponent, ContentWrapperComponent, AgencyRangePipe, DeactivationDialog],
 })
 export class SharedModule {}

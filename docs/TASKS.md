@@ -19,8 +19,8 @@
 
 - [x] Una página para la gestión de agencias espaciales
 - [x] Resolver los datos antes de entrar en la página
-- [ ] Una página para el alta de una nueva agencia
-- [ ] Proteger la entrada a la página de usuarios no autorizados
-- [ ] Proteger la salida para datos no guardados
-- [ ] Redirigir a los no autenticados a la página de login
-- [ ] Redirigir tras el login a la página de inicio
+- [x] Una página para el alta de una nueva agencia
+- [x] Proteger la entrada a la página de usuarios no autorizados
+- [x] Redirigir a los no autenticados a la página de login
+- [x] Redirigir tras el login a la página de inicio
+- [x] Proteger la salida para datos no guardados

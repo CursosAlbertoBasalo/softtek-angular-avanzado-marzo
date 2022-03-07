@@ -1,17 +1,33 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Observable, of, Subject } from 'rxjs';
 
 @Component({
   selector: 'stk-new',
   templateUrl: './new.component.html',
-  styles: [
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewComponent implements OnInit {
+  isDirty = true;
+  isAskingForDeActivation$ = new Subject<boolean>();
+  canDeDeactivated$ = new Subject<boolean>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onCanBeDeActivated(canBeDeactivated: boolean) {
+    this.isAskingForDeActivation$.next(false);
+    this.canDeDeactivated$.next(canBeDeactivated);
   }
 
+  canDeactivate(): Observable<boolean> {
+    if (this.isDirty) {
+      this.isAskingForDeActivation$.next(true);
+      return this.canDeDeactivated$.asObservable();
+    } else {
+      return of(true);
+    }
+    // return confirm('Are you sure you want to discard the changes?');
+  }
 }

@@ -1,6 +1,10 @@
 # Command Line Interface
 
 ```bash
+################################################################################
+# 0 - Initialize the project
+################################################################################
+
 # Install the CLI
 npm i -g @angular/cli
 
@@ -21,6 +25,7 @@ npm start
 npm run api
 
 # Clean initial component and styles
+#===================================
 
 # Crete a Core module for header and footer components
 ng g m core --module app.module.ts
@@ -39,6 +44,10 @@ ng g interface data/models/trip --type interface
 ng g s data/services/agencies
 ng g s data/services/trips
 
+################################################################################
+# 1 - Components
+################################################################################
+
 # Create Shared module for components and pipes
 ng g m shared
 ng g c shared/components/preview --export true
@@ -51,9 +60,9 @@ ng g c shared/components/refresh --export true
 ng g m home --module app.module.ts --route 'home'
 ng g s home/home
 
-# Create presentational components
-
 # Agencies as a presentational component
+#=======================================
+
 ng g c home/agencies --type list
 # LoadingOrError to be reused in other components
 ng g c shared/components/loadingOrError --export true
@@ -64,17 +73,48 @@ ng g c shared/components/loadingOrError --export true
 ng g c shared/components/asyncWrapper --export true
 ng g c home/trips --type list
 ng g c shared/components/list --export true
+
 # Alternative way using ng-content
+#================================
+
 ng g c shared/components/contentWrapper --export true
 
 # Create pipes
+#=============
 ng g p shared/pipes/agencyRange --export true
 
-# Router
+################################################################################
+# 2 - Router
+################################################################################
 
 # Create module for the agencies page
 ng g m agencies --module app.module.ts --route 'agencies'
 # Resolver to get agencies before page load
-# Use RxJs pipes to catch errors
+# Use exJs pipes to catch errors
 ng g r agencies/agencies
+
+# Create module for new agency page
+ng g m agencies/new --module agencies.module --route 'new'
+
+# Can Load guard to prevent loading data before page load
+#=========================================================
+
+# Protect against unauthorized access, prevent downloading the lazy module
+# Register the guard on the router with the loadChildren function
+# Redirect user to login, but with returnUrl as a parameter
+ng g guard core/authenticated --implements CanLoad
+
+# Create a login page
+# Return to url after login
+ng g m auth/login --module app.module --route 'login'
+
+# Can Activate and Can Deactivate guards
+#=======================================
+
+# Protects against data needed (activate) or not saved (deactivate)
+# Register the guard where the component is used
+ng g guard agencies/new/new --implements CanActivate --implements CanDeactivate
+# Delegate responsibility to the component and a dialog
+ng g c shared/components/deactivation --type dialog --export true
+
 ```

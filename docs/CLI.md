@@ -117,4 +117,36 @@ ng g guard agencies/new/new --implements CanActivate --implements CanDeactivate
 # Delegate responsibility to the component and a dialog
 ng g c shared/components/deactivation --type dialog --export true
 
+################################################################################
+# 3 - Forms
+################################################################################
+
+ng g m auth/register --module app.module --route 'register'
+# Reactive form with validators
+ng g c auth/register/register --type form
+
+# Validations
+#============
+
+# Custom and form validators
+ng g s shared/controls/validators
+
+# Async validator for email
+ng g interface data/models/user --type interface
+ng g s data/services/users
+ng g s auth/register/userValidators
+
+# Controls and sub forms
+#=======================
+
+# Create email form control with CVA
+# with a new form and auto defined validators
+ng g c shared/controls/email --type control --export true
+
+# passing validators as Input() and creating a sub form
+ng g c shared/controls/template --type control --export true
+
+# passing form as Input() and using [value] and (change)
+ng g c shared/controls/generic --type control --export true
+
 ```

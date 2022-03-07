@@ -24,3 +24,13 @@
 - [x] Redirigir a los no autenticados a la página de login
 - [x] Redirigir tras el login a la página de inicio
 - [x] Proteger la salida para datos no guardados
+
+## 3. Formularios y validación
+
+- [x] Formulario de registro de usuario
+- [x] Validaciones de campos obligatorios
+- [x] Validaciones asíncrona de email
+- [x] Validaciones duplicada de contraseña
+- [x] Usar componente email común (CVA)
+- [x] Usar componente genérico con template (CVA)
+- [x] Re utilización de lógica de formularios

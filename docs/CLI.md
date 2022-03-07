@@ -90,7 +90,7 @@ ng g p shared/pipes/agencyRange --export true
 # Create module for the agencies page
 ng g m agencies --module app.module.ts --route 'agencies'
 # Resolver to get agencies before page load
-# Use exJs pipes to catch errors
+# Use RxJs pipes to catch errors
 ng g r agencies/agencies
 
 # Create module for new agency page

@@ -1,4 +1,11 @@
-<p>agencies works!</p>
-<stk-preview *ngIf="agencies.data"
-             [data]="agencies.data"></stk-preview>
-<h2 *ngIf="agencies.error"> {{ agencies.error }} </h2>
+<article>
+  <header>The agencies page</header>
+  <ul>
+    <li *ngFor="let agency of agencies.data">
+      <a [routerLink]="[agency.id]"> {{ agency.name }} </a>
+    </li>
+  </ul>
+  <footer>
+    <a [routerLink]="['./new']">➕ Add a new Agency</a>
+  </footer>
+</article>

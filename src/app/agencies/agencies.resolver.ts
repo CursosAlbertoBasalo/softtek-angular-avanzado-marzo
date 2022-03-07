@@ -9,12 +9,13 @@ import { catchError, delay, map, Observable, of } from 'rxjs';
 })
 export class AgenciesResolver implements Resolve<{ data?: Agency[]; error?: string }> {
   constructor(private agencies: AgenciesService) {}
+
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<{ data?: Agency[]; error?: string }> {
     return this.agencies.getAll$().pipe(
-      delay(3000),
+      delay(300),
       map((data) => ({ data })),
       catchError((err) => of({ error: err.message }))
     );

@@ -8,6 +8,7 @@ const routes: Routes = [
     path: 'agencies',
     loadChildren: () => import('./agencies/agencies.module').then((m) => m.AgenciesModule),
   },
+  { path: 'login', loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule) },
 ];
 
 @NgModule({

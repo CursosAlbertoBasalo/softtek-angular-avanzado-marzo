@@ -14,6 +14,7 @@ export class TripsComponent implements OnInit {
     return this.calculations.calculateFullFlightPrice(trip);
   }
   totalWeight = this.weights.getWeight(10);
+
   constructor(
     private calculations: TripCalculationsService,
     private weights: WeightAbstractService

@@ -1,0 +1,10 @@
+<ng-container [formGroup]="form">
+  <label [for]="formControlName">{{ label }}</label>
+  <input [id]="formControlName"
+         [name]="formControlName"
+         [formControlName]="formControlName"
+         [type]="type"
+         [attr.aria-invalid]="isInvalid()"
+         (blur)="touchedCallback()">
+  <small *ngIf="mustShowError()">{{ getErrorMessage() }}</small>
+</ng-container>

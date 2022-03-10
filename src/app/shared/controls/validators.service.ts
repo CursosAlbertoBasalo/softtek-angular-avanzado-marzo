@@ -6,6 +6,7 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 })
 export class ValidatorsService {
   constructor() {}
+
   customPasswordValidation(control: AbstractControl): ValidationErrors | null {
     let errors: ValidationErrors | null = null;
     const value = control.value as string;

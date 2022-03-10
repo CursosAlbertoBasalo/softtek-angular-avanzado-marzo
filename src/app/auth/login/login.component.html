@@ -1,5 +1,24 @@
 <h2> Log in </h2>
-<form>
+<form [formGroup]="form">
+  <!-- <label>Email</label>
+  <input name="email"
+         type="email"
+         formControlName="email"
+         [attr.aria-invalid]="form.get('email')?.invalid">
+  <small *ngIf="form.get('email')?.invalid">{{ form.get('email')?.errors | json }}</small> -->
+
+  <stk-email formControlName="email"></stk-email>
+
+  <!-- <label>Password</label>
+  <input name="password"
+         type="text"
+         formControlName="password"
+         [attr.aria-invalid]="form.get('password')?.invalid">
+  <small *ngIf="form.get('password')?.invalid">{{ form.get('password')?.errors | json }}</small> -->
+  <stk-generic formControlName="password"
+               label="The Password"
+               type="password"
+               [validators]="passwordValidators"></stk-generic>
   <input type="button"
          value="Log In"
          (click)="onLogin()">

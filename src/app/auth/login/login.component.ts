@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -8,13 +9,30 @@ import { ActivatedRoute, Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  form: FormGroup;
+  public passwordValidators = [Validators.required, Validators.minLength(4)];
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {
+    this.form = this.formBuilder.group({
+      email: ['a@b.c'],
+      password: ['123', this.passwordValidators],
+    });
+  }
 
   ngOnInit(): void {}
 
   onLogin() {
     console.log('Login');
-    this.navigateBack();
+    console.log(this.form.value);
+    const realValue = {
+      email: this.form.value.email.email || this.form.value.email,
+      password: this.form.value.password,
+    };
+    console.log(realValue);
+    //this.navigateBack();
   }
   private navigateBack() {
     const homeUrl = '/';

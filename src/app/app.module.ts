@@ -7,7 +7,20 @@ import { AppComponent } from './app.component';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, CoreModule],
-  providers: [],
+  providers: [
+    // TripCalculationsService,
+    // { provide: TripCalculationsService, useClass: TripCalculationsService },
+    // {
+    //   provide: TripCalculationsService,
+    //   useValue: new TripCalculationsService(),
+    // },
+    // {
+    //   provide: TripCalculationsService,
+    //   useFactory: () => {
+    //     new TripCalculationsService();
+    //   },
+    // },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

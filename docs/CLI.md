@@ -158,5 +158,37 @@ ng g c shared/controls/generic --type control --export true
 # passing validators as Input() and creating a sub form
 ng g c shared/controls/template --type control --export true
 
+################################################################################
+# 4 - Dependency Injection
+################################################################################
+
+## Service weights
+#=================
+
+# Provided in root effects on compiled code
+ng g m trips --module app.module.ts --route 'trips'
+# Use in one module, weights in this particular module
+# If used in more weights in common module
+ng g s trips/tripCalculations
+
+## Inversion of control
+#======================
+
+# Show units in different systems
+ng g s trips/weightAbstract
+ng g s trips/weightMetric
+ng g s trips/weightImperial
+
+# Injection tokens
+#=================
+
+# Simple logger
+ng g s core/logger
+
+# Component Providers
+#=====================
+
+ng g m agencies/agency --module agencies.module --route ':id'
+# agency.provider.ts
 
 ```

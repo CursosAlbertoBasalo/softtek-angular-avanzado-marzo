@@ -19,6 +19,10 @@
                label="The Password"
                type="password"
                [validators]="passwordValidators"></stk-generic>
+  <stk-template formControlName="password"
+                label="Password Generic"
+                type="password"
+                [form]="form"></stk-template>
   <input type="button"
          value="Log In"
          (click)="onLogin()">

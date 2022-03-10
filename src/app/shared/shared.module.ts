@@ -14,6 +14,7 @@ import { RefreshComponent } from './components/refresh/refresh.component';
 import { AgencyRangePipe } from './pipes/agency-range.pipe';
 import { EmailControl } from './controls/email/email.control';
 import { GenericControl } from './controls/generic/generic.control';
+import { TemplateControl } from './controls/template/template.control';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { GenericControl } from './controls/generic/generic.control';
     DeactivationDialog,
     EmailControl,
     GenericControl,
+    TemplateControl,
   ],
   imports: [CommonModule, ReactiveFormsModule],
   exports: [
@@ -47,6 +49,7 @@ import { GenericControl } from './controls/generic/generic.control';
     DeactivationDialog,
     EmailControl,
     GenericControl,
+    TemplateControl,
   ],
 })
 export class SharedModule {}

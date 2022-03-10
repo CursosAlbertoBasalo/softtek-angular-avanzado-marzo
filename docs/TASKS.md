@@ -31,6 +31,6 @@
 - [x] Validaciones de campos obligatorios
 - [x] Validaciones asíncrona de email
 - [x] Validaciones duplicada de contraseña
-- [x] Usar componente email común (CVA)
-- [x] Usar componente genérico con template (CVA)
-- [x] Re utilización de lógica de formularios
+- [ ] Usar componente email común (CVA)
+- [ ] Usar componente genérico con template (CVA)
+- [ ] Re utilización de lógica de formularios

@@ -24,8 +24,8 @@ npm install -D json-server json-server-auth
 npm start
 npm run api
 
-# Clean initial component and styles
-#===================================
+## Clean initial component and styles
+#====================================
 
 # Crete a Core module for header and footer components
 ng g m core --module app.module.ts
@@ -60,27 +60,31 @@ ng g c shared/components/refresh --export true
 ng g m home --module app.module.ts --route 'home'
 ng g s home/home
 
-# Agencies as a presentational component
-#=======================================
-
+# Container and templates as a presentational components
 ng g c home/agencies --type list
 # LoadingOrError to be reused in other components
 ng g c shared/components/loadingOrError --export true
+
+## Async wrapper
+#===============
+
 # Responsible of async data loading, error detection and template rendering
 # TemplateRef as input parameter
 # Data$ as input parameter, with get set methods
 # Container with templateOutlet and templateContext
 ng g c shared/components/asyncWrapper --export true
+
+# Presentational component using asyncWrapper
 ng g c home/trips --type list
 ng g c shared/components/list --export true
 
-# Alternative way using ng-content
-#================================
+# Content Wrapper: alternative way using ng-content
+#==================================================
 
 ng g c shared/components/contentWrapper --export true
 
-# Create pipes
-#=============
+# Pipes
+#======
 ng g p shared/pipes/agencyRange --export true
 
 ################################################################################
@@ -89,17 +93,22 @@ ng g p shared/pipes/agencyRange --export true
 
 # Create module for the agencies page
 ng g m agencies --module app.module.ts --route 'agencies'
+
+## Resolver
+#==========
+
 # Resolver to get agencies before page load
-# Use RxJs pipes to catch errors
+# Use exJs pipes to catch errors
 ng g r agencies/agencies
 
 # Create module for new agency page
 ng g m agencies/new --module agencies.module --route 'new'
 
-# Can Load guard to prevent loading data before page load
-#=========================================================
+## Can Load Guard
+#================
 
-# Protect against unauthorized access, prevent downloading the lazy module
+# Prevent downloading the lazy module code
+# Useful for protect against unauthorized access
 # Register the guard on the router with the loadChildren function
 # Redirect user to login, but with returnUrl as a parameter
 ng g guard core/authenticated --implements CanLoad
@@ -108,7 +117,7 @@ ng g guard core/authenticated --implements CanLoad
 # Return to url after login
 ng g m auth/login --module app.module --route 'login'
 
-# Can Activate and Can Deactivate guards
+## Can Activate and Can Deactivate Guards
 #=======================================
 
 # Protects against data needed (activate) or not saved (deactivate)
@@ -125,7 +134,7 @@ ng g m auth/register --module app.module --route 'register'
 # Reactive form with validators
 ng g c auth/register/register --type form
 
-# Validations
+## Validations
 #============
 
 # Custom and form validators
@@ -136,8 +145,8 @@ ng g interface data/models/user --type interface
 ng g s data/services/users
 ng g s auth/register/userValidators
 
-# Controls and sub forms
-#=======================
+## Controls and sub forms with CVA
+#=================================
 
 # Create email form control with CVA
 # with a new form and auto defined validators

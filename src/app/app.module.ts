@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CoreModule } from '@core/core.module';
-import { environment } from '@env/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeightAbstractService } from './trips/weight-abstract.service';
 import { WeightImperialService } from './trips/weight-imperial.service';
-import { WeightMetricService } from './trips/weight-metric.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,9 +24,7 @@ import { WeightMetricService } from './trips/weight-metric.service';
     // },
     {
       provide: WeightAbstractService,
-      useFactory: () => {
-        environment.units === 'imperial' ? new WeightImperialService() : new WeightMetricService();
-      },
+      useValue: new WeightImperialService(),
     },
   ],
   bootstrap: [AppComponent],

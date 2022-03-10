@@ -12,7 +12,11 @@ import {
   templateUrl: './email.control.html',
   styles: [],
   providers: [
-    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => EmailControl), multi: true },
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => EmailControl),
+      multi: true,
+    },
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

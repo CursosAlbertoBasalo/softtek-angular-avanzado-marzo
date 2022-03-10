@@ -34,3 +34,10 @@
 - [x] Usar componente email común (CVA)
 - [x] Usar componente genérico con template (CVA)
 - [x] Re utilización de lógica de formularios
+
+## 4. Inyección de dependencias
+
+- [x] Servicio pesado para cálculos de precios
+- [x] Servicios para mostrar pesos en distintos sistemas de medidas
+- [x] Servicio de Logging
+- [ ] Provider as a resolver para un componente

@@ -17,3 +17,11 @@
 - [Deep dive into Angular CVA](https://blog.koverhoop.com/deep-dive-into-angular-cva-afd7d6da5f85)
 
 - [Angular FormGroup addControl() and removeControl()](https://www.concretepage.com/angular/angular-formgroup-addcontrol-removecontrol-removecontrols-method)
+
+# 4 Dependencias
+
+- [Angular Dependency Injection](https://angular.io/guide/dependency-injection)
+
+- [Injection Tokens](https://angular-book.dev/ch06-04-injection-tokens.html)
+
+- [Private providers concept](https://indepth.dev/posts/1306/private-providers)

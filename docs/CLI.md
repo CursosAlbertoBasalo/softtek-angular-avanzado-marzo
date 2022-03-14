@@ -191,4 +191,19 @@ ng g s core/logger
 ng g m agencies/agency --module agencies.module --route ':id'
 # agency.provider.ts
 
+################################################################################
+# 5 - RxJS and HTTP
+################################################################################
+
+## Interceptors
+#==============
+
+# Caching (url, response)
+ng g interceptor data/services/cache
+
+# Status indicator (working, success, error)
+ng g interceptor data/services/status
+ng g interface data/models/apiStatus --type interface
+ng g enum data/models/status --type enum
+
 ```

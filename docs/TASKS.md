@@ -40,12 +40,12 @@
 - [x] Servicio pesado para cálculos de precios
 - [x] Servicios para mostrar pesos en distintos sistemas de medidas
 - [x] Servicio de Logging
-- [ ] Provider as a resolver para un componente
+- [x] Provider as a resolver para un componente
 
 ## 5. RxJS y HTTP
 
-- [ ] Caché de llamadas HTTP (filter, tap)
-- [ ] Gestión de estado de las comunicaciones HTTP (para usar más adelante con un store)
+- [x] Caché de llamadas HTTP (filter, tap)
+- [x] Gestión de estado de las comunicaciones HTTP (para usar más adelante con un store)
 - [ ] Control de errores de las comunicaciones HTTP (retryWhen, catchError, mergeMap)
 - [ ] Obtener lista de viajes de la agencia activa (switchMap vs mergeMap)
 - [ ] Obtener total de plazas ofertadas por todas las agencias (forkJoin)

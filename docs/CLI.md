@@ -152,10 +152,10 @@ ng g s auth/register/userValidators
 # with a new form and auto defined validators
 ng g c shared/controls/email --type control --export true
 
-# passing form as Input() and using [value] and (change)
+# passing validators as Input() and creating a sub form
 ng g c shared/controls/generic --type control --export true
 
-# passing validators as Input() and creating a sub form
+# passing form as Input() and using [value] and (change)
 ng g c shared/controls/template --type control --export true
 
 ################################################################################
@@ -182,7 +182,7 @@ ng g s trips/weightImperial
 # Injection tokens
 #=================
 
-# Simple logger
+# Simple logger with injected tokens (APP_VERSION, ONLY_ERRORS)
 ng g s core/logger
 
 # Component Providers

@@ -46,7 +46,7 @@
 
 - [x] Caché de llamadas HTTP (filter, tap)
 - [x] Gestión de estado de las comunicaciones HTTP (para usar más adelante con un store)
-- [ ] Control de errores de las comunicaciones HTTP (retryWhen, catchError, mergeMap)
+- [x] Control de errores de las comunicaciones HTTP (retryWhen, catchError, mergeMap)
 - [ ] Obtener lista de viajes de la agencia activa (switchMap vs mergeMap)
 - [ ] Obtener total de plazas ofertadas por todas las agencias (forkJoin)
 - [ ] Un buscador de vuelos (fromEvent, debounceTime, distinctUntilChanged)

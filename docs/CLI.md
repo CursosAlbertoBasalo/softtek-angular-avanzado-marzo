@@ -206,4 +206,7 @@ ng g interceptor data/services/status
 ng g interface data/models/apiStatus --type interface
 ng g enum data/models/status --type enum
 
+# Error handler (with retry, redirect and log)
+ng g interceptor data/services/error
+
 ```

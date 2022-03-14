@@ -3,6 +3,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InjectionToken, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CacheInterceptor } from '@data/services/cache.interceptor';
+import { ErrorInterceptor } from '@data/services/error.interceptor';
 import { StatusInterceptor } from '@data/services/status.interceptor';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -30,6 +31,7 @@ export const ONLY_ERRORS = new InjectionToken<boolean>('onlyErrors');
     { provide: ONLY_ERRORS, useValue: false },
     { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: StatusInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   exports: [HeaderComponent, FooterComponent],
 })

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Trip } from '@data/models/trip.interface';
 import { environment } from '@env/environment';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -17,5 +17,9 @@ export class TripsService {
   }
   getError$(): Observable<Trip[]> {
     return this.http.get<Trip[]>(this.apiUrl + '/error');
+  }
+  getByAgencyId$(agencyId: string | null): Observable<Trip[]> {
+    if (agencyId === null) return of([]);
+    return this.http.get<Trip[]>(this.apiUrl + '?agencyId=' + agencyId);
   }
 }

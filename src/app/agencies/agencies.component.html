@@ -1,8 +1,26 @@
 <article>
-  <header>The agencies page</header>
+  <header>
+    Total offered places : {{ totalPlaces$ | async }}
+  </header>
   <ul>
     <li *ngFor="let agency of agencies.data">
-      <a [routerLink]="[agency.id]"> {{ agency.name }} </a>
+      <span (mouseover)="changeAgencyParam(agency)">
+        <a [routerLink]="[agency.id]"> {{ agency.name }} </a> {{ agency.range }} {{ agency.status }}
+      </span>
+    </li>
+  </ul>
+  <footer>
+    <a [routerLink]="['./new']">➕ Add a new Agency</a>
+  </footer>
+</article>
+
+<article *ngIf="trips$ | async as trips">
+  <header>Offered trips</header>
+  <ul>
+    <li *ngFor="let trip of trips">
+      <span>
+        There are {{ trip.places }} seats to {{ trip.destination }} for {{ trip.flightPrice }} €
+      </span>
     </li>
   </ul>
   <footer>

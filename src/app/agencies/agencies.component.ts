@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Agency } from '@data/models/agency.interface';
+import { Trip } from '@data/models/trip.interface';
+import { TripsService } from '@data/services/trips.service';
+import { forkJoin, map, Observable, switchMap } from 'rxjs';
 
 @Component({
   selector: 'stk-agencies',
@@ -10,15 +13,31 @@ import { Agency } from '@data/models/agency.interface';
 })
 export class AgenciesComponent implements OnInit {
   agencies: { data?: Agency[]; error?: string } = { data: [], error: '' };
-  // fullTripPrice(trip: Trip) {
-  //   return this.calculations.calculateFullFlightPrice(trip);
-  // }
-
+  trips$!: Observable<Trip[]>;
+  totalPlaces$!: Observable<number>;
   constructor(
-    private route: ActivatedRoute //private calculations: TripCalculationsService
+    private route: ActivatedRoute,
+    private readonly router: Router,
+    private trips: TripsService
   ) {}
 
   ngOnInit(): void {
     this.agencies = this.route.snapshot.data['agencies'];
+    this.trips$ = this.route.queryParamMap.pipe(
+      map((params) => params.get('agencyId')),
+      switchMap((agencyId) => this.trips.getByAgencyId$(agencyId))
+      // mergeMap((agencyId) => this.tripsService.getByAgencyId$(agencyId))
+    );
+    const agencies = this.agencies.data || [];
+
+    this.totalPlaces$ = forkJoin(
+      agencies.map((agency: Agency) => this.trips.getByAgencyId$(agency.id))
+    ).pipe(
+      map((agenciesTrips: Trip[][]) => agenciesTrips.flat()),
+      map((allTrips: Trip[]) => allTrips.reduce((acc, trip) => acc + trip.places, 0))
+    );
+  }
+  changeAgencyParam(agency: Agency) {
+    this.router.navigate([], { relativeTo: this.route, queryParams: { agencyId: agency.id } });
   }
 }

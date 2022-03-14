@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Trip } from '@data/models/trip.interface';
-import { TripCalculationsService } from './trip-calculations.service';
-import { WeightAbstractService } from './weight-abstract.service';
+import { TripCalculationsService } from '../labs/trip-calculations.service';
+import { WeightAbstractService } from '../labs/weight-abstract.service';
 
 @Component({
   selector: 'stk-trips',

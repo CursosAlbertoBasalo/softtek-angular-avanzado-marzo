@@ -15,7 +15,13 @@ export class AgenciesService {
   getAll$(): Observable<Agency[]> {
     return this.http.get<Agency[]>(this.apiUrl);
   }
+  getById$(id: string): Observable<Agency> {
+    return this.http.get<Agency>(this.apiUrl + '/' + id);
+  }
   getError$(): Observable<Agency[]> {
     return this.http.get<Agency[]>(this.apiUrl + '/error');
+  }
+  post$(agency: Agency): Observable<Agency> {
+    return this.http.post<Agency>(this.apiUrl, agency);
   }
 }

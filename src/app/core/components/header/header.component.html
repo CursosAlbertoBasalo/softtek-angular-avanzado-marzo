@@ -3,9 +3,12 @@
     <a routerLink="/">
       🚀 {{ title | uppercase }}
     </a>
-    <a [routerLink]="['/agencies']"> ➡️ Agencies </a>
-    <a [routerLink]="['/trips']"> ➡️ Trips </a>
-    <a [routerLink]="['/register']"> 👤 Register </a>
+    <ul>
+      <li><a [routerLink]="['/agencies']"> ➡️ Agencies </a></li>
+      <li><a [routerLink]="['/trips']"> ➡️ Trips </a></li>
+      <li><a [routerLink]="['/register']"> 👤 Register </a></li>
+      <li><a [routerLink]="['/labs']"> 🧪 Labs </a></li>
+    </ul>
   </nav>
 </header>
 <hr>

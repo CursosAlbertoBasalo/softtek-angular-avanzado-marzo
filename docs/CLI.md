@@ -166,18 +166,18 @@ ng g c shared/controls/template --type control --export true
 #=================
 
 # Provided in root effects on compiled code
-ng g m trips --module app.module.ts --route 'trips'
+ng g m labs --module app.module.ts --route 'labs'
+ng g s labs/tripCalculations
 # Use in one module, weights in this particular module
 # If used in more weights in common module
-ng g s trips/tripCalculations
 
 ## Inversion of control
 #======================
 
 # Show units in different systems
-ng g s trips/weightAbstract
-ng g s trips/weightMetric
-ng g s trips/weightImperial
+ng g s labs/weightAbstract
+ng g s labs/weightMetric
+ng g s labs/weightImperial
 
 # Injection tokens
 #=================

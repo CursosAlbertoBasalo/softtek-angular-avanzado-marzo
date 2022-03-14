@@ -17,6 +17,7 @@ const routes: Routes = [
     canLoad: [AuthenticatedGuard],
     loadChildren: () => import('./new/new.module').then((m) => m.NewModule),
   },
+  { path: ':id', loadChildren: () => import('./agency/agency.module').then((m) => m.AgencyModule) },
 ];
 
 @NgModule({

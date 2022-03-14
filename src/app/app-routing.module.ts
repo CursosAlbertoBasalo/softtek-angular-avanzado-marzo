@@ -8,10 +8,16 @@ const routes: Routes = [
     path: 'agencies',
     loadChildren: () => import('./agencies/agencies.module').then((m) => m.AgenciesModule),
   },
-  { path: 'login', loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule) },
-  { path: 'register', loadChildren: () => import('./auth/register/register.module').then(m => m.RegisterModule) },
-  { path: 'trips', loadChildren: () => import('./trips/trips.module').then(m => m.TripsModule) },
-  { path: 'labs', loadChildren: () => import('./labs/labs.module').then(m => m.LabsModule) },
+  {
+    path: 'login',
+    loadChildren: () => import('./auth/login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./auth/register/register.module').then((m) => m.RegisterModule),
+  },
+  { path: 'trips', loadChildren: () => import('./trips/trips.module').then((m) => m.TripsModule) },
+  { path: 'labs', loadChildren: () => import('./labs/labs.module').then((m) => m.LabsModule) },
 ];
 
 @NgModule({

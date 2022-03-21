@@ -4,4 +4,5 @@
          type="search">
 </form>
 <pre>{{ searchInput$ | async | json }}</pre>
-<pre>{{ tripsResult$ | async | json }}</pre>
+<pre>{{ tripsResult$  | async | json }}</pre>
+<h2>{{ (tripsResult$ | async)?.length }}</h2>

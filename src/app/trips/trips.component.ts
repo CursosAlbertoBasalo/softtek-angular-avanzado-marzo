@@ -8,6 +8,7 @@ import {
   fromEvent,
   map,
   Observable,
+  shareReplay,
   switchMap,
 } from 'rxjs';
 
@@ -32,7 +33,8 @@ export class TripsComponent implements OnInit {
       debounceTime(500),
       filter((text) => text.length >= 2),
       distinctUntilChanged(),
-      switchMap((searchTerm) => this.trips.getByText$(searchTerm))
+      switchMap((searchTerm) => this.trips.getByText$(searchTerm)),
+      shareReplay()
     );
   }
 }

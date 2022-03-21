@@ -1,2 +1,7 @@
-<p>trips works!</p>
-{{ totalWeight }}
+<h2>Search for trips</h2>
+<form>
+  <input #searchInput
+         type="search">
+</form>
+<pre>{{ searchInput$ | async | json }}</pre>
+<pre>{{ tripsResult$ | async | json }}</pre>

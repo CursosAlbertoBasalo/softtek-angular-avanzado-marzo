@@ -22,4 +22,8 @@ export class TripsService {
     if (agencyId === null) return of([]);
     return this.http.get<Trip[]>(this.apiUrl + '?agencyId=' + agencyId);
   }
+  getByText$(text: string | null): Observable<Trip[]> {
+    if (text === null) return of([]);
+    return this.http.get<Trip[]>(this.apiUrl + '?q=' + text);
+  }
 }

@@ -209,4 +209,9 @@ ng g enum data/models/status --type enum
 # Error handler (with retry, redirect and log)
 ng g interceptor data/services/error
 
+## Operators
+#============
+
+# A search optimized operator
+ng g m trips --module app.module.ts --route 'trips'
 ```

@@ -50,4 +50,4 @@
 - [x] Obtener lista de viajes de la agencia activa (switchMap vs mergeMap)
 - [x] Obtener total de plazas ofertadas por todas las agencias (forkJoin)
 - [x] Un buscador de vuelos (fromEvent, debounceTime, distinctUntilChanged)
-- [ ] Compartir resultados asíncronos (share, shareReplay)
+- [x] Compartir resultados asíncronos (share, shareReplay)

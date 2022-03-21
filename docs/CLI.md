@@ -214,4 +214,30 @@ ng g interceptor data/services/error
 
 # A search optimized operator
 ng g m trips --module app.module.ts --route 'trips'
+
+################################################################################
+# 6 - Redux
+################################################################################
+
+## Store reactivo simple
+#=======================
+
+# Authorized user state
+# Changed at register, login, logout
+# Used static at guards and interceptors
+# Used async at header component
+ng g s core/auth-store
+ng g interface core/models/auth --type interface
+ng g interceptor data/services/auth
+
+
+## Store reactivo with commands
+#==============================
+ng g s data/services/apiStatus-store
+
+
+```
+
+```
+
 ```

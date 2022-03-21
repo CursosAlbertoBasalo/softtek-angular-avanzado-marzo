@@ -51,3 +51,9 @@
 - [x] Obtener total de plazas ofertadas por todas las agencias (forkJoin)
 - [x] Un buscador de vuelos (fromEvent, debounceTime, distinctUntilChanged)
 - [x] Compartir resultados asíncronos (share, shareReplay)
+
+## 6. Redux
+
+- [x] Un Store reactivo para el control de autorización del usuario
+- [x] Un Store reactivo con acciones y consultas al estado de llamadas HTTP
+- [ ] Un Store con Akita para el estado de las reservas

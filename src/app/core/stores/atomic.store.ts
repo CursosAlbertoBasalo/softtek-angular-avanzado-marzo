@@ -1,22 +1,30 @@
 import { BehaviorSubject, map, Observable } from 'rxjs';
 
+// Single source of truth
+
 export class AtomicStore<T> {
-  private state$: BehaviorSubject<T>;
+  private readonly state$: BehaviorSubject<T>;
 
   constructor(initialState: T) {
-    this.state$ = new BehaviorSubject<T>(initialState);
+    const state = this.clone(initialState);
+    this.state$ = new BehaviorSubject<T>(state);
   }
 
-  set(state: T) {
-    this.state$.next(this.clone(state));
-  }
-  get(): T {
-    return this.clone(this.state$.getValue());
+  public set(next: T): void {
+    const state = this.clone(next);
+    this.state$.next(state);
   }
 
-  get$(): Observable<T> {
-    return this.state$.asObservable().pipe(map((state) => this.clone(state)));
+  public get(): T {
+    const current = this.state$.getValue();
+    return this.clone(current);
   }
+
+  public get$(): Observable<T> {
+    const state$ = this.state$.asObservable();
+    return state$.pipe(map(this.clone));
+  }
+
   protected clone(state: T) {
     return { ...state };
   }

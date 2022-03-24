@@ -1,26 +1,27 @@
 import { distinctUntilChanged, map, Observable } from 'rxjs';
 import { Action, MolecularStore } from './molecular.store';
 
-type Selector<T> = (state: T) => unknown;
-type Reducer<T> = (state: T, payload: any) => T;
+type Reducer<T> = (state: T, payload: unknown) => T;
+type Selector<T, K> = (state: T) => K;
+
+// Partial changes
 
 export class OrganicStore<T> extends MolecularStore<T> {
-  reducers: Map<string, Reducer<T>> = new Map();
+  protected readonly reducers: Map<string, Reducer<T>> = new Map();
 
-  public addReducer(actionType: string, reducer: Reducer<T>): void {
+  public setReducer(actionType: string, reducer: Reducer<T>): void {
     this.reducers.set(actionType, reducer);
   }
 
-  override dispatch(action: Action): void {
+  public override dispatch(action: Action): void {
+    const current = super.get();
+    const payload = action.payload;
     const reducer = this.reducers.get(action.type);
-    if (reducer) {
-      const previous = super.get();
-      const next = reducer(previous, action.payload);
-      this.applyChange({ action, previous, next });
-    }
+    const next = reducer ? reducer(current, payload) : (payload as T);
+    super.applyChange({ action, current, next });
   }
 
-  select$(selector: Selector<T>): Observable<unknown> {
+  public select$<K>(selector: Selector<T, K>): Observable<K> {
     return super.get$().pipe(map(selector), distinctUntilChanged());
   }
 }

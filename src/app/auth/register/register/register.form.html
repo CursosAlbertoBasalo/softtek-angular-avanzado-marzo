@@ -26,7 +26,8 @@
 
   <input type="button"
          value="Register me"
-         [disabled]="form.invalid">
+         [disabled]="form.invalid"
+         (click)="onRegister()">
   <small *ngIf="form.invalid">{{ form?.errors | json }}</small>
 
 

@@ -6,6 +6,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UsersService } from '@data/services/users.service';
 import { ValidatorsService } from '@shared/controls/validators.service';
 import { UserValidatorsService } from '../user-validators.service';
 
@@ -36,7 +38,9 @@ export class RegisterForm implements OnInit {
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly userValidators: UserValidatorsService,
-    private readonly validatorsService: ValidatorsService
+    private readonly validatorsService: ValidatorsService,
+    private usersService: UsersService,
+    private router: Router
   ) {
     this.form = this.formBuilder.group(
       {
@@ -51,4 +55,10 @@ export class RegisterForm implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  onRegister() {
+    this.usersService.postRegister$(this.form.value).subscribe({
+      next: (token: string) => this.router.navigate(['/']),
+    });
+  }
 }

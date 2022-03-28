@@ -1,5 +1,12 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "a@b.c",
+      "password": "$2a$10$/SFfa47zTRuvsmoZMUuS7el3ub2JpuQInh8zK5rWgIuLLp0fhp3iO",
+      "passwordConfirmation": "987654",
+      "id": 1
+    }
+  ],
   "bookings": [],
   "agencies": [
     {

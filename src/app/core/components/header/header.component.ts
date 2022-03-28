@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthStore } from '@core/auth.store';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'stk-header',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   public title = 'softtek astro bookings';
-  constructor() {}
+  public isAuthenticated$: Observable<boolean>;
+  public emailUser$: Observable<string>;
+  constructor(private auth: AuthStore) {
+    this.isAuthenticated$ = this.auth.getAuth$().pipe(
+      map((auth) => auth.token),
+      map((token) => !!token)
+    );
+    this.emailUser$ = this.auth.getEmail$();
+  }
 
   ngOnInit(): void {}
 }

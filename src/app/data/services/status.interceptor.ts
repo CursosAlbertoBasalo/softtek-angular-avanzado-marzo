@@ -21,6 +21,7 @@ export class StatusInterceptor implements HttpInterceptor {
       error: error,
     });
   }
+
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     this.setStatus(Status.Working, request.urlWithParams);
 

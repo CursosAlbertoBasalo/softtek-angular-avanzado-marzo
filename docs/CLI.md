@@ -237,7 +237,3 @@ ng g s data/services/apiStatus-store
 
 
 ```
-
-```
-
-```

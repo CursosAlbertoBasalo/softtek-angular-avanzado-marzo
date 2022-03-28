@@ -9,7 +9,8 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "run-p web api",
+    "start": "ng serve -o",
+    "all": "run-p web api",
     "web": "ng serve -o",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",

@@ -241,4 +241,10 @@ ng g interceptor data/services/auth
 ng g s data/services/apiStatus-store # rename to apiStatus.store and class without suffix
 
 
+## Akita
+#=======
+
+npm i @datorama/akita
+ng add @datorama/akita # devtools , configuration, schematics
+
 ```

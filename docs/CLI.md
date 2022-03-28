@@ -231,9 +231,14 @@ ng g interface core/models/auth --type interface
 ng g interceptor data/services/auth
 
 
-## Store reactivo with commands
+## Store reactivo with actions
 #==============================
-ng g s data/services/apiStatus-store
+
+# Api status state (working success error) changed from interceptor
+# Action types enumeration for secured actions
+# Functional reducers (could/should be pure)
+# Partial notifications sample with select$
+ng g s data/services/apiStatus-store # rename to apiStatus.store and class without suffix
 
 
 ```

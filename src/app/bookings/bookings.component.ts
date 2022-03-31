@@ -26,4 +26,25 @@ export class BookingsComponent implements OnInit {
   ngOnInit(): void {
     this.bookingsService.get().subscribe();
   }
+
+  onAddNewBookingClicked() {
+    const newBooking: Booking = {
+      id: 'space-y-mars-2-' + Math.random(),
+      clientId: 'Random' + Math.floor(Math.random() * 5),
+      passengers: Math.floor(Math.random() * 10),
+      tripId: 'space-y-mars-2',
+    };
+    // this.bookingsStore.add(newBooking);
+    this.bookingsService.add(newBooking).subscribe();
+  }
+  onAddRepeatedBookingClicked() {
+    const newBooking: Booking = {
+      id: 'space-y-mars-2-warren',
+      clientId: 'Warren',
+      passengers: 1,
+      tripId: 'space-y-mars-2',
+    };
+    // this.bookingsStore.add(newBooking);
+    this.bookingsService.add(newBooking).subscribe();
+  }
 }

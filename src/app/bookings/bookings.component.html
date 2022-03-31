@@ -2,7 +2,10 @@
   {{ bookings$ | async  | json}}
 </pre>
 <div>
-  <button attr.aria-busy="{{ loading$ | async }}">Add new booking</button>
+  <button attr.aria-busy="{{ loading$ | async }}"
+          (click)="onAddNewBookingClicked()">Add new booking</button>
+  <button attr.aria-busy="{{ loading$ | async }}"
+          (click)="onAddRepeatedBookingClicked()">☢️ Add repeated booking</button>
 </div>
 <blockquote *ngIf="error$ | async as error">
   {{ error | json }}

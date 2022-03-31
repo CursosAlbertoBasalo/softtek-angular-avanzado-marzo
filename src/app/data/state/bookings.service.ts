@@ -17,19 +17,31 @@ export class BookingsService {
     return this.http.get<Booking[]>(this.apiUrl).pipe(
       tap({
         next: (entities) => {
-          this.bookingsStore.setLoading(false);
           this.bookingsStore.set(entities);
+          this.bookingsStore.setLoading(false);
         },
         error: (error) => {
-          this.bookingsStore.setLoading(false);
           this.bookingsStore.setError(error);
+          this.bookingsStore.setLoading(false);
         },
       })
     );
   }
 
   add(booking: Booking) {
-    this.bookingsStore.add(booking);
+    this.bookingsStore.setLoading(true);
+    return this.http.post<Booking>(this.apiUrl, booking).pipe(
+      tap({
+        next: (booking) => {
+          this.bookingsStore.add(booking);
+          this.bookingsStore.setLoading(false);
+        },
+        error: (err) => {
+          this.bookingsStore.setError(err);
+          this.bookingsStore.setLoading(false);
+        },
+      })
+    );
   }
 
   update(id: string, booking: Partial<Booking>) {

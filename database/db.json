@@ -13,6 +13,30 @@
       "clientId": "mark",
       "passengers": 2,
       "tripId": "space-y-moon-1"
+    },
+    {
+      "id": "space-y-mars-2-0.9753343686332807",
+      "clientId": "Random3",
+      "passengers": 7,
+      "tripId": "space-y-mars-2"
+    },
+    {
+      "id": "space-y-mars-2-0.49270727094958877",
+      "clientId": "Random2",
+      "passengers": 8,
+      "tripId": "space-y-mars-2"
+    },
+    {
+      "id": "space-y-mars-2-0.28856899502091693",
+      "clientId": "Random2",
+      "passengers": 6,
+      "tripId": "space-y-mars-2"
+    },
+    {
+      "id": "space-y-mars-2-warren",
+      "clientId": "Warren",
+      "passengers": 1,
+      "tripId": "space-y-mars-2"
     }
   ],
   "agencies": [

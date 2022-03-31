@@ -47,7 +47,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/softtek-angular-avanzado",
+            "outputPath": "dist/softtek-angular-avanzado/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -138,6 +138,64 @@
               "src/**/*.html"
             ]
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/softtek-angular-avanzado/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "softtek-angular-avanzado:build:development",
+              "serverTarget": "softtek-angular-avanzado:server:development"
+            },
+            "production": {
+              "browserTarget": "softtek-angular-avanzado:build:production",
+              "serverTarget": "softtek-angular-avanzado:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "softtek-angular-avanzado:build:production",
+              "serverTarget": "softtek-angular-avanzado:server:production"
+            },
+            "development": {
+              "browserTarget": "softtek-angular-avanzado:build:development",
+              "serverTarget": "softtek-angular-avanzado:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

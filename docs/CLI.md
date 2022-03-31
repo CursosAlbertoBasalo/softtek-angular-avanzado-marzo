@@ -253,4 +253,13 @@ ng add @datorama/akita # devtools , configuration, schematics
 ng g m bookings --module app.module.ts --route 'bookings'
 ng g af data/bookings
 
+################################################################################
+# 7 - SSR
+################################################################################
+ng update
+ng update @angular/cli
+npm i --force # commit changes
+ng update @angular/core # commit changes
+ng add @nguniversal/express-engine
+
 ```

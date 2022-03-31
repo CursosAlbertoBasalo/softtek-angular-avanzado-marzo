@@ -7,7 +7,14 @@
       "id": 1
     }
   ],
-  "bookings": [],
+  "bookings": [
+    {
+      "id": "space-y-moon-1-mark",
+      "clientId": "mark",
+      "passengers": 2,
+      "tripId": "space-y-moon-1"
+    }
+  ],
   "agencies": [
     {
       "id": "space-y",

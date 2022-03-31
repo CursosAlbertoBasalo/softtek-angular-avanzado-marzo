@@ -1,1 +1,9 @@
-<p>bookings works!</p>
+<pre>
+  {{ bookings$ | async  | json}}
+</pre>
+<div>
+  <button attr.aria-busy="{{ loading$ | async }}">Add new booking</button>
+</div>
+<blockquote *ngIf="error$ | async as error">
+  {{ error | json }}
+</blockquote>

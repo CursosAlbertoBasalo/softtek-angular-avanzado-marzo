@@ -13,9 +13,17 @@ export class BookingsService {
   constructor(private bookingsStore: BookingsStore, private http: HttpClient) {}
 
   get() {
+    this.bookingsStore.setLoading(true);
     return this.http.get<Booking[]>(this.apiUrl).pipe(
-      tap((entities) => {
-        this.bookingsStore.set(entities);
+      tap({
+        next: (entities) => {
+          this.bookingsStore.setLoading(false);
+          this.bookingsStore.set(entities);
+        },
+        error: (error) => {
+          this.bookingsStore.setLoading(false);
+          this.bookingsStore.setError(error);
+        },
       })
     );
   }

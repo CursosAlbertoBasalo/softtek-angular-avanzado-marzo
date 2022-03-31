@@ -6,6 +6,7 @@
     <ul>
       <li><a [routerLink]="['/agencies']"> ➡️ Agencies </a></li>
       <li><a [routerLink]="['/trips']"> ➡️ Trips </a></li>
+      <li><a [routerLink]="['/bookings']"> ➡️ Bookings </a></li>
       <li *ngIf="(isAuthenticated$ | async) === false"><a [routerLink]="['/register']"> 👤 Register
         </a></li>
       <li *ngIf="isAuthenticated$ | async"><a routerLink="/"> 😵‍💫 {{ emailUser$ | async }} </a>

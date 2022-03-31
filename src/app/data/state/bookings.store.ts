@@ -7,9 +7,7 @@ export interface BookingsState extends EntityState<Booking> {}
 @Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'bookings' })
 export class BookingsStore extends EntityStore<BookingsState> {
-
   constructor() {
     super();
   }
-
 }

@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { QueryEntity } from '@datorama/akita';
-import { BookingsStore, BookingsState } from './bookings.store';
+import { BookingsState, BookingsStore } from './bookings.store';
 
 @Injectable({ providedIn: 'root' })
 export class BookingsQuery extends QueryEntity<BookingsState> {
-
-  constructor(protected store: BookingsStore) {
+  constructor(protected override store: BookingsStore) {
     super(store);
   }
-
 }

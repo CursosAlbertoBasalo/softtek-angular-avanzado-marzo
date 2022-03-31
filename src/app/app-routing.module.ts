@@ -18,6 +18,7 @@ const routes: Routes = [
   },
   { path: 'trips', loadChildren: () => import('./trips/trips.module').then((m) => m.TripsModule) },
   { path: 'labs', loadChildren: () => import('./labs/labs.module').then((m) => m.LabsModule) },
+  { path: 'bookings', loadChildren: () => import('./bookings/bookings.module').then(m => m.BookingsModule) },
 ];
 
 @NgModule({

@@ -247,4 +247,10 @@ ng g s data/services/apiStatus-store # rename to apiStatus.store and class witho
 npm i @datorama/akita
 ng add @datorama/akita # devtools , configuration, schematics
 
+# Load bookings
+# Book a trip
+# Show busy indicator, errors, success and aggregated counters
+ng g m bookings --module app.module.ts --route 'bookings'
+ng g af data/bookings
+
 ```

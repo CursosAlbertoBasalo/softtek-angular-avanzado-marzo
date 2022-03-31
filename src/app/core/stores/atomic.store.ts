@@ -10,9 +10,10 @@ export class AtomicStore<T> {
     this.state$ = new BehaviorSubject<T>(state);
   }
 
-  public set(next: T): void {
-    const state = this.clone(next);
-    this.state$.next(state);
+  public set(state: Partial<T>): void {
+    const current = this.get();
+    const next = { ...current, ...state };
+    this.state$.next(next);
   }
 
   public get(): T {

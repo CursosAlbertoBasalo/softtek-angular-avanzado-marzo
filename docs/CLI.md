@@ -262,4 +262,12 @@ npm i --force # commit changes
 ng update @angular/core # commit changes
 ng add @nguniversal/express-engine
 
+npm run api
+npm run dev:ssr
+
+npm run build:ssr
+npm run serve:ssr
+
+npm run prerender
+
 ```

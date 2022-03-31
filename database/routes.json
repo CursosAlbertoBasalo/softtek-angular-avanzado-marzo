@@ -1,6 +1,7 @@
 {
   "agencies": 644,
   "bookings": 666,
+  "logs": 666,
   "users": 644,
   "trips": 644,
   "real_bookings": 600

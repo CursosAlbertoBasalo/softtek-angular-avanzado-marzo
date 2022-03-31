@@ -138,5 +138,57 @@
       "extraLuggagePricePerKilo": 0,
       "premiumFoodPrice": 1000
     }
+  ],
+  "logs": [
+    {
+      "message": "Fake Error",
+      "appVersion": "1.0.0",
+      "id": 1
+    },
+    {
+      "message": "Fake Error",
+      "appVersion": "1.0.0",
+      "id": 2
+    },
+    {
+      "message": "Fake Error",
+      "appVersion": "1.0.0",
+      "id": 3
+    },
+    {
+      "message": "Fake Error",
+      "appVersion": "1.0.0",
+      "id": 4
+    },
+    {
+      "message": "Fake Error",
+      "appVersion": "1.0.0",
+      "id": 5
+    },
+    {
+      "message": "Fake Error",
+      "appVersion": "1.0.0",
+      "id": 6
+    },
+    {
+      "message": "Fake Error",
+      "appVersion": "1.0.0",
+      "id": 7
+    },
+    {
+      "message": "Fake Error",
+      "appVersion": "1.0.0",
+      "id": 8
+    },
+    {
+      "message": "Fake Error",
+      "appVersion": "1.0.0",
+      "id": 9
+    },
+    {
+      "message": "Fake Error",
+      "appVersion": "1.0.0",
+      "id": 10
+    }
   ]
 }

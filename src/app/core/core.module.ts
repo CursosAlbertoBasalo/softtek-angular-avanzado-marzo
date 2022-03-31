@@ -1,13 +1,16 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { InjectionToken, NgModule } from '@angular/core';
+import { InjectionToken, NgModule, PLATFORM_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CacheInterceptor } from '@data/services/cache.interceptor';
 import { ErrorInterceptor } from '@data/services/error.interceptor';
 import { StatusInterceptor } from '@data/services/status.interceptor';
+import { AbstractService } from './abstract.service';
+import { ClientService } from './client.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoggerService } from './logger.service';
+import { ServerService } from './server.service';
 
 export const APP_VERSION = new InjectionToken<string>('appVersion');
 export const ONLY_ERRORS = new InjectionToken<boolean>('onlyErrors');
@@ -23,6 +26,10 @@ export const ONLY_ERRORS = new InjectionToken<boolean>('onlyErrors');
 //   }
 // }
 
+function createAbstractService(platformId: Object) {
+  return isPlatformBrowser(platformId) ? new ClientService() : new ServerService();
+}
+
 @NgModule({
   imports: [CommonModule, HttpClientModule, RouterModule],
   declarations: [HeaderComponent, FooterComponent],
@@ -32,6 +39,11 @@ export const ONLY_ERRORS = new InjectionToken<boolean>('onlyErrors');
     { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: StatusInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    {
+      provide: AbstractService,
+      useFactory: createAbstractService,
+      deps: [PLATFORM_ID],
+    },
   ],
   exports: [HeaderComponent, FooterComponent],
 })

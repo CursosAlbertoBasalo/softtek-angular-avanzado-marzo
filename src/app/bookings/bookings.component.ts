@@ -17,6 +17,9 @@ export class BookingsComponent implements OnInit {
   error$: Observable<any> = this.bookingsQuery.selectError();
   loading$: Observable<boolean> = this.bookingsQuery.selectLoading();
 
+  totalBookings$: Observable<number> = this.bookingsQuery.selectTotalBookings();
+  totalPassengers$: Observable<number> = this.bookingsQuery.selectTotalPassengers();
+
   constructor(
     private readonly bookingsStore: BookingsStore,
     private readonly bookingsQuery: BookingsQuery,

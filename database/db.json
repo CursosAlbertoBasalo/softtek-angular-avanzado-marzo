@@ -37,6 +37,24 @@
       "clientId": "Warren",
       "passengers": 1,
       "tripId": "space-y-mars-2"
+    },
+    {
+      "id": "space-y-mars-2-0.31782633926432124",
+      "clientId": "Random1",
+      "passengers": 6,
+      "tripId": "space-y-mars-2"
+    },
+    {
+      "id": "space-y-mars-2-0.22038244297929643",
+      "clientId": "Random2",
+      "passengers": 5,
+      "tripId": "space-y-mars-2"
+    },
+    {
+      "id": "space-y-mars-2-0.08411085104240712",
+      "clientId": "Random1",
+      "passengers": 4,
+      "tripId": "space-y-mars-2"
     }
   ],
   "agencies": [

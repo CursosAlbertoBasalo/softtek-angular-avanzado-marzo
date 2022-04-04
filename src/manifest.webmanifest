@@ -1,8 +1,8 @@
 {
-  "name": "softtek-angular-avanzado",
-  "short_name": "softtek-angular-avanzado",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Softtek Angular Avanzado",
+  "short_name": "Stk-ng+",
+  "theme_color": "#58a6ff",
+  "background_color": "#a371f7",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

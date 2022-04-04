@@ -14,7 +14,7 @@ import { filter, Observable, of, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class CacheInterceptor implements HttpInterceptor {
-  private readonly cache = new Map<string, unknown>();
+  //private readonly cache = new Map<string, unknown>();
 
   constructor(private abstract: AbstractService, private readonly logger: LoggerService) {}
 
@@ -40,8 +40,8 @@ export class CacheInterceptor implements HttpInterceptor {
   }
 
   private getFromCache(urlKey: string): any {
-    this.logger.warn('📏 ➡️  Pre cache size : ', this.cache.size);
-    let result: any = this.cache.get(urlKey);
+    //this.logger.warn('📏 ➡️  Pre cache size : ', this.cache.size);
+    let result: any = null; //this.cache.get(urlKey);
     if (result) {
       this.logger.warn('📦 ➡️  Using cache from : ' + urlKey, result.length);
       this.logger.warn('📦 ⤵️ Transferring data from: ' + urlKey, result.length);
@@ -60,8 +60,8 @@ export class CacheInterceptor implements HttpInterceptor {
 
   private setToCache(urlKey: string, response: any) {
     this.logger.warn('➡️ 📦 Caching response for: ' + urlKey, response.length);
-    this.cache.set(urlKey, response);
+    // this.cache.set(urlKey, response);
     this.abstract.setTransferState(urlKey, response);
-    this.logger.warn('📏 ➡️  Post cache size : ', this.cache.size);
+    // this.logger.warn('📏 ➡️  Post cache size : ', this.cache.size);
   }
 }

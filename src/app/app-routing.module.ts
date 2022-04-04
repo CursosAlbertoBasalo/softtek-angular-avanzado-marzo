@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then((m) => m.HomeModule) },
+  { path: 'home', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', loadChildren: () => import('./home/home.module').then((m) => m.HomeModule) },
   {
     path: 'agencies',
     loadChildren: () => import('./agencies/agencies.module').then((m) => m.AgenciesModule),
@@ -18,13 +18,18 @@ const routes: Routes = [
   },
   { path: 'trips', loadChildren: () => import('./trips/trips.module').then((m) => m.TripsModule) },
   { path: 'labs', loadChildren: () => import('./labs/labs.module').then((m) => m.LabsModule) },
-  { path: 'bookings', loadChildren: () => import('./bookings/bookings.module').then(m => m.BookingsModule) },
+  {
+    path: 'bookings',
+    loadChildren: () => import('./bookings/bookings.module').then((m) => m.BookingsModule),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    initialNavigation: 'enabledBlocking'
-})],
+  imports: [
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'enabledBlocking',
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

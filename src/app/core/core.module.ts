@@ -1,6 +1,7 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InjectionToken, NgModule, PLATFORM_ID } from '@angular/core';
+import { TransferState } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { CacheInterceptor } from '@data/services/cache.interceptor';
 import { ErrorInterceptor } from '@data/services/error.interceptor';
@@ -26,8 +27,14 @@ export const ONLY_ERRORS = new InjectionToken<boolean>('onlyErrors');
 //   }
 // }
 
-function createAbstractService(platformId: Object) {
-  return isPlatformBrowser(platformId) ? new ClientService() : new ServerService();
+function createAbstractService(
+  platformId: Object,
+  transferState: TransferState,
+  loggerService: LoggerService
+) {
+  return isPlatformBrowser(platformId)
+    ? new ClientService(transferState, loggerService)
+    : new ServerService(transferState, loggerService);
 }
 
 @NgModule({
@@ -42,7 +49,7 @@ function createAbstractService(platformId: Object) {
     {
       provide: AbstractService,
       useFactory: createAbstractService,
-      deps: [PLATFORM_ID],
+      deps: [PLATFORM_ID, TransferState, LoggerService],
     },
   ],
   exports: [HeaderComponent, FooterComponent],

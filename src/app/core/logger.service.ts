@@ -2,7 +2,6 @@ import { isPlatformServer } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { environment } from '@env/environment';
-import { AbstractService } from './abstract.service';
 import { APP_VERSION, ONLY_ERRORS } from './core.module';
 
 @Injectable({
@@ -21,11 +20,8 @@ export class LoggerService {
     @Inject(APP_VERSION) private readonly appVersion: string,
     @Inject(ONLY_ERRORS) private readonly onlyErrors: boolean,
     @Inject(PLATFORM_ID) private readonly platformId: Object,
-    private readonly http: HttpClient,
-    private readonly abstract: AbstractService
-  ) {
-    abstract.doThings();
-  }
+    private readonly http: HttpClient
+  ) {}
 
   log(message: string, payload: unknown) {
     if (this.onlyErrors) return;

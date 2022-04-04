@@ -64,5 +64,5 @@
 - [x] Run the app in a server
 - [x] Use a different log logic on client or server
 - [x] Use a different strategy abstract service on client or server
-- [ ] Transfer state
+- [x] Transfer state
 - [ ] SEO friendly (home page)

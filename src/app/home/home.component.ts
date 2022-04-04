@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { Trip } from '@data/models/trip.interface';
 import { HomeService } from './home.service';
 
@@ -12,7 +13,10 @@ export class HomeComponent implements OnInit {
   trips$ = this.service.getTrips$();
   tripsData: Trip[] = [];
 
-  constructor(private service: HomeService) {}
+  constructor(private service: HomeService, private title: Title, private meta: Meta) {
+    this.title.setTitle('🔥🚧⏰✨✅♻️🔚');
+    this.meta.updateTag({ name: 'description', content: 'Sample application for Softtek' });
+  }
 
   ngOnInit(): void {}
 

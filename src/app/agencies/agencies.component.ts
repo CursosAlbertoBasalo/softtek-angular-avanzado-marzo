@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Agency } from '@data/models/agency.interface';
 import { Trip } from '@data/models/trip.interface';
@@ -18,11 +19,18 @@ export class AgenciesComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private readonly router: Router,
-    private trips: TripsService
+    private trips: TripsService,
+    private readonly title: Title,
+    private meta: Meta
   ) {}
 
   ngOnInit(): void {
     this.agencies = this.route.snapshot.data['agencies'];
+    this.title.setTitle('Agencias: ' + this.agencies.data?.length);
+    this.meta.updateTag({
+      name: 'description',
+      content: `There are ${this.agencies.data?.length} agencies`,
+    });
     this.trips$ = this.route.queryParamMap.pipe(
       map((params) => params.get('agencyId')),
       switchMap((agencyId) => this.trips.getByAgencyId$(agencyId))

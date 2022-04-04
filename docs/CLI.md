@@ -93,6 +93,7 @@ ng g p shared/pipes/agencyRange --export true
 
 # Create module for the agencies page
 ng g m agencies --module app.module.ts --route 'agencies'
+ng g m home --module app.module.ts --route 'home'
 
 ## Resolver
 #==========

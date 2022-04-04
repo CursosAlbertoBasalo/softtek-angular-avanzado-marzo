@@ -65,4 +65,4 @@
 - [x] Use a different log logic on client or server
 - [x] Use a different strategy abstract service on client or server
 - [x] Transfer state
-- [ ] SEO friendly (home page)
+- [x] SEO friendly (home page)

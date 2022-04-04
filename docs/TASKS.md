@@ -56,4 +56,13 @@
 
 - [x] Un Store reactivo para el control de autorización del usuario
 - [x] Un Store reactivo con acciones y consultas al estado de llamadas HTTP
-- [ ] Un Store con Akita para el estado de las reservas
+- [x] Un Store con Akita para el estado de las reservas
+
+## 7. SSR
+
+- [x] Add Server side capabilities
+- [x] Run the app in a server
+- [x] Use a different log logic on client or server
+- [x] Use a different strategy abstract service on client or server
+- [ ] Transfer state
+- [ ] SEO friendly (home page)

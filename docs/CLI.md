@@ -270,4 +270,10 @@ npm run serve:ssr
 
 npm run prerender
 
+##  @Inject(PLATFORM_ID) private readonly platformId: Object, on Logger
+
+ng g s core/abstract
+ng g s core/client
+ng g s core/server
+
 ```

@@ -41,7 +41,8 @@ export class LoggerService {
         message: error.message,
         appVersion: this.appVersion,
       };
-      this.http.post(this.apiUrl, payload).subscribe();
+      // ToDo: no http loop
+      // this.http.post(this.apiUrl, payload).subscribe();
     } else {
       console.warn(logMessage);
     }

@@ -12,6 +12,7 @@
     "start": "ng serve -o",
     "all": "run-p web api",
     "web": "ng serve -o",
+    "pwa": "npm run build && npx http-server -p 8081 -c-1 dist/softtek-angular-avanzado/browser",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",

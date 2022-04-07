@@ -2,8 +2,8 @@
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
   "appData": {
-    "version": "Actualización Abril",
-    "description": "Corrección de errores y mejoras varias"
+    "version": "Mejora Log",
+    "description": "Status de cambios en cabecera"
   },
   "assetGroups": [
     {

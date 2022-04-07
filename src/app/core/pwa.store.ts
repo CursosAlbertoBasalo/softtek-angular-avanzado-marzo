@@ -9,6 +9,8 @@ export type Pwa = { version: string; description: string; status: string; showRe
 export class PwaStore extends OrganicStore<Pwa> {
   constructor() {
     super({ version: 'initial', description: 'initial', status: 'initial', showReload: false });
-    super.registerEffect((change) => console.log(change.action.payload));
+    super.registerEffect((change) =>
+      console.log((change.action.payload as any).status, change.action.payload)
+    );
   }
 }

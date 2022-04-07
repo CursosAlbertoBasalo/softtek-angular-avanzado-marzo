@@ -1,5 +1,7 @@
 # Softtek Angular Avanzado
 
+[Cuestionario valoraciones](https://forms.gle/HwKDrpf8HMyy2MscA)
+
 > Curso de avanzado de desarrollo con Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.

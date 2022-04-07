@@ -283,4 +283,6 @@ ng g s core/server
 
 ng add @angular/pwa
 
+ng g s core/pwa
+ng g s core/pwa-store
 ```

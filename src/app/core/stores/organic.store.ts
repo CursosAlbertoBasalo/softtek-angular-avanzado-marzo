@@ -1,10 +1,10 @@
 import { distinctUntilChanged, map, Observable } from 'rxjs';
 import { Action, MolecularStore } from './molecular.store';
 
+// Partial changes
+
 type Reducer<T> = (state: T, payload: unknown) => T;
 type Selector<T, K> = (state: T) => K;
-
-// Partial changes
 
 export class OrganicStore<T> extends MolecularStore<T> {
   protected readonly reducers: Map<string, Reducer<T>> = new Map();
@@ -25,14 +25,3 @@ export class OrganicStore<T> extends MolecularStore<T> {
     return super.get$().pipe(map(selector), distinctUntilChanged());
   }
 }
-
-type Cuenta = { iban: string; saldo: number; fecha: Date };
-
-const cuentaDeDaniel = new OrganicStore<Cuenta>({ iban: '', saldo: 0, fecha: new Date() });
-cuentaDeDaniel.set({ iban: '', saldo: 100, fecha: new Date() });
-cuentaDeDaniel.set({ iban: '', saldo: 100, fecha: new Date() });
-cuentaDeDaniel.get();
-cuentaDeDaniel.get$().subscribe((c) => console.log(c));
-cuentaDeDaniel.select$((state) => state.saldo * 2).subscribe((x) => console.log(x));
-cuentaDeDaniel.set({ iban: '', saldo: 200, fecha: new Date() });
-cuentaDeDaniel.set({ iban: '', saldo: 300, fecha: new Date() });

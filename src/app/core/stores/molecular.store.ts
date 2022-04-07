@@ -8,10 +8,12 @@ export type Change<T> = { action: Action; current: T; next: T };
 export type Effect<T> = (change: Change<T>) => void;
 export type Filter<T> = (change: Change<T>) => boolean;
 
+// Changes log
+
 export class MolecularStore<T> extends AtomicStore<T> {
   protected readonly changes$ = new ReplaySubject<Change<T>>();
 
-  public override set(state: T): void {
+  public override set(state: Partial<T>): void {
     this.dispatch({ type: 'SET_STATE', payload: state });
   }
 
@@ -21,8 +23,9 @@ export class MolecularStore<T> extends AtomicStore<T> {
     this.applyChange({ action, current, next });
   }
 
-  public registerEffect(effect: Effect<T>, change: Filter<T>): void {
-    this.changes$.pipe(filter(change)).subscribe(effect);
+  public registerEffect(effect: Effect<T>, change?: Filter<T>): void {
+    const filterFn = change ? change : () => true;
+    this.changes$.pipe(filter(filterFn)).subscribe(effect);
   }
 
   protected applyChange(change: Change<T>) {

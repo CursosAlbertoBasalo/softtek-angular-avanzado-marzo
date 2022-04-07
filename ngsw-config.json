@@ -1,6 +1,10 @@
 {
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
+  "appData": {
+    "version": "Actualización Abril",
+    "description": "Corrección de errores y mejoras varias"
+  },
   "assetGroups": [
     {
       "name": "app",
@@ -11,7 +15,16 @@
           "/favicon.ico",
           "/index.html",
           "/manifest.webmanifest",
-          "/*.css",
+          "/*.css"
+        ]
+      }
+    },
+    {
+      "name": "lazy",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
           "/*.js"
         ]
       }

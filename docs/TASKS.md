@@ -69,6 +69,6 @@
 
 ## 8. PWA
 
-- [ ] Install and configure
-- [ ] Cache
+- [x] Install and configure
+- [x] Cache
 - [ ] Updates

@@ -285,4 +285,35 @@ ng add @angular/pwa
 
 ng g s core/pwa
 ng g s core/pwa-store
+
+################################################################################
+# 9 - Libs
+################################################################################
+
+# 📚 Create a workspace without an application
+npx ng new stkBigClient --create-application=false --minimal
+
+# 📒 Generate an application
+ng g application www --minimal -p=stk --routing=true --style=css
+ng serve
+
+# 📒 Generate an application
+ng g application admin --minimal -p=stk --routing=true --style=css
+
+# 📕 Generate a library for ui shared components, directives and pipes
+ng g library ui -p=stk-ui
+ng build ui --watch
+
+# 📕 Generate a library for api common services
+ng g library api
+ng build api --watch
+
+# 📗 Generate a library for the home page
+ng g library home -p=ab
+ng build home --watch
+
+# 📗 Generate a library for the about page
+ng g library about -p=ab
+ng build about --watch
+
 ```

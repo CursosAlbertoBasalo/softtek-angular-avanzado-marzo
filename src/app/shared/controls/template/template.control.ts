@@ -25,31 +25,32 @@ export class TemplateControl implements OnInit, ControlValueAccessor {
   @Input() formControlName!: string;
   @Input() form!: FormGroup;
 
+  value: any;
+  private changedCallback!: (value: any) => {};
+  private touchedCallback!: () => {};
+
   constructor() {}
 
   writeValue(val: any): void {
     this.value = val;
   }
-  value: any;
   registerOnChange(changeCallback: any): void {
     this.changedCallback = changeCallback;
   }
-  changedCallback!: (value: any) => {};
   registerOnTouched(touchedCallback: any): void {
     this.touchedCallback = touchedCallback;
   }
-  touchedCallback!: () => {};
 
   ngOnInit(): void {}
+
+  onBlur() {
+    this.touchedCallback();
+  }
 
   onChange(event: any) {
     this.value = event.target.value;
     this.changedCallback(this.value);
     this.touchedCallback();
-  }
-
-  getControl(): AbstractControl {
-    return this.form.controls[this.formControlName];
   }
 
   isInvalid(): boolean {
@@ -62,5 +63,8 @@ export class TemplateControl implements OnInit, ControlValueAccessor {
   getErrorMessage(): string {
     const control = this.getControl();
     return JSON.stringify(control.errors);
+  }
+  private getControl(): AbstractControl {
+    return this.form.controls[this.formControlName];
   }
 }

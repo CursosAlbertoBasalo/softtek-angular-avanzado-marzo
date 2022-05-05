@@ -15,10 +15,10 @@
          formControlName="password"
          [attr.aria-invalid]="form.get('password')?.invalid">
   <small *ngIf="form.get('password')?.invalid">{{ form.get('password')?.errors | json }}</small> -->
-  <stk-generic formControlName="password"
+  <!-- <stk-generic formControlName="password"
                label="The Password"
                type="password"
-               [validators]="passwordValidators"></stk-generic>
+               [validators]="passwordValidators"></stk-generic> -->
   <stk-template formControlName="password"
                 label="Password Generic"
                 type="password"

@@ -6,4 +6,6 @@
        [attr.aria-invalid]="isInvalid()"
        (keyup)="onChange($event)"
        (blur)="touchedCallback()">
-<small *ngIf="mustShowError()">{{ getErrorMessage() }}</small>
+<small *ngIf="mustShowError()">
+  {{ getErrorMessage() }}
+</small>

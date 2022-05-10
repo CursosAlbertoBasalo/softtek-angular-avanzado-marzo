@@ -23,6 +23,7 @@ export class TripsComponent implements OnInit {
 
   searchInput$!: Observable<string>;
   tripsResult$!: Observable<Trip[]>;
+
   constructor(private readonly trips: TripsService) {}
 
   ngOnInit(): void {

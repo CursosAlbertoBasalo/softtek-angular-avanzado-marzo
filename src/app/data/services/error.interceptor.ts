@@ -12,37 +12,39 @@ import { catchError, delay, mergeMap, Observable, of, retryWhen, throwError } fr
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  private readonly retryIncrementalDelay = 1000;
+  private readonly retryDelay = 1000;
   private readonly retryMaxAttempts = 2;
-  private readonly retryErrorFromCode = 404;
+  private readonly retryMinimalErrorCode = 404;
+
   constructor(private readonly logger: LoggerService, private readonly router: Router) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
-      retryWhen((errors: Observable<any>) => this.processCallErrors(errors)),
+      retryWhen((errors: Observable<any>) => this.tryCallWithErrors(errors)),
       catchError((err) => this.processError(err))
     );
   }
 
-  private processCallErrors(errors: Observable<any>): Observable<any> {
-    return errors.pipe(mergeMap((error, count) => this.processCallError(error, count)));
+  private tryCallWithErrors(errors: Observable<any>): Observable<any> {
+    return errors.pipe(mergeMap((error, count) => this.tryCallWithAnError(error, count)));
   }
-
-  private processCallError(error: any, count: number): Observable<any> {
+  private tryCallWithAnError(error: any, count: number): Observable<any> {
     if (this.isRetriableCall(error, count)) {
-      const retries = count + 1;
-      this.logger.warn(`♻️ Retry #${retries} for error: ${error.message}`, error);
-      return of(error).pipe(delay(this.retryIncrementalDelay));
+      return this.retryCall(count, error);
     }
     return throwError(() => error);
   }
-
   private isRetriableCall(error: any, count: number) {
     return (
       error instanceof HttpErrorResponse &&
-      error.status >= this.retryErrorFromCode &&
+      error.status >= this.retryMinimalErrorCode &&
       count < this.retryMaxAttempts
     );
+  }
+  private retryCall(count: number, error: any) {
+    const retries = count + 1;
+    this.logger.warn(`♻️ Retry #${retries} for error: ${error.message}`, error);
+    return of(error).pipe(delay(this.retryDelay));
   }
 
   private processError(error: any): Observable<any> {
